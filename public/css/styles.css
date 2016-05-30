@@ -1,0 +1,66 @@
+html {
+
+}
+
+body {
+    font-family: arial, serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #fff;
+
+}
+
+.content {
+  margin: 10px;
+  padding: 0;
+}
+
+.header {
+    background: #666;
+    height: 44px;
+    line-height: 44px;
+    width: 100%;
+    color: #fff;
+    border-bottom: solid 1px #eee;
+}
+
+.connectorset {
+  background: rgb(255,192,203); /*pink;*/
+  border: 3px solid rgb(255,192,203);
+}
+
+.process {
+  background: rgb(255,255,153); /*yellow;*/
+  border: 3px solid rgb(255,255,153);
+}
+
+.Event {
+  background: rgba(0, 255, 0, 0.151); /* #2095FE;*/
+  border: 3px solid rgba(0, 255, 0, 0.15);
+}
+
+.Result {
+  background: rgba(0, 255, 0, 0.151); /* #2095FE;*/
+  border: 3px solid rgba(0, 255, 0, 0.15);
+}
+
+.objecttype {
+    margin: 3px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+h1 {
+    font-size: 18px;
+    padding: 20 0 0 0;
+    margin: 0px;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: normal;
+    padding: 0px;
+    margin: 0px;
+}
