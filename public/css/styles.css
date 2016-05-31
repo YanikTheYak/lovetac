@@ -12,6 +12,20 @@ body {
 
 }
 
+pre {
+  background:none repeat scroll #f9f9f9;
+  border-left:5px solid #ccc;
+  clear:both;
+  font:normal normal normal 11px/18px Monaco, monospace;
+  margin-bottom:18px;
+  overflow:auto;
+  padding:10px 15px;
+}
+
+.codeBloc {
+  width: 95%;
+}
+
 .content {
   margin: 10px;
   padding: 0;
@@ -27,23 +41,29 @@ body {
 }
 
 .connectorset {
-  background: rgb(255,192,203); /*pink;*/
-  border: 3px solid rgb(255,192,203);
+  background: rgb(255, 192, 203, 0.5); /*pink;*/
+  border: 3px solid rgb(255, 192, 203, 0.5);
 }
 
-.process {
-  background: rgb(255,255,153); /*yellow;*/
-  border: 3px solid rgb(255,255,153);
+.Process {
+  background: rgba(255, 255, 153, 0.5); /*yellow;*/
+  border: 3px solid rgba(255, 255, 153, 0.5);
+}
+
+.XOR {
+  background: rgba(204, 153, 255, 0.5); /* #2095FE;*/
+  border: 3px solid rgba(204, 153, 255, 0.5);
+
 }
 
 .Event {
-  background: rgba(0, 255, 0, 0.151); /* #2095FE;*/
-  border: 3px solid rgba(0, 255, 0, 0.15);
+  background: rgba(153, 255, 153, 0.5); /* #2095FE;*/
+  border: 3px solid rgba(153, 255, 153, 0.5);
 }
 
 .Result {
-  background: rgba(0, 255, 0, 0.151); /* #2095FE;*/
-  border: 3px solid rgba(0, 255, 0, 0.15);
+  background: rgba(255, 153, 153, 0.5); /* #FF9999;*/
+  border: 3px solid rgba(255, 153, 153, 0.5);
 }
 
 .objecttype {
