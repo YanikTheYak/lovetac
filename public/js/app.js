@@ -281,7 +281,8 @@ function drawGraphD3JS(nodes, links) {
       .attr('class', 'id')
       .text(function(d) {
         // return d.id;
-        return d.id + ' ' + d.name;
+        return d.name;
+        // return d.id + ' ' + d.name;
       });
 
     // remove old nodes
