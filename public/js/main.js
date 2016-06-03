@@ -8,11 +8,38 @@ function arrayObjectIndexOf(myArray, searchTerm, property) {
   return -1;
 }
 
+// Format JSON in HTML
+
+function json2Html(myJSON) {
+  var table = $('<table />'),
+      row = $('<tr />');
+  row.append('<td class="checklist">' + myJSON.Name + '</td>');
+  table.append(row);
+
+  $.each(myJSON.Pages, function(key, page) {
+    var row = $('<tr />');
+    row.append('<td class="page">' + page.Name + '</td>');
+    table.append(row);
+
+    $.each(page.Groups, function(key, group) {
+      var row = $('<tr />');
+      row.append('<td class="group">' + group.Name + '</td>');
+      table.append(row);
+
+      $.each(group.Steps, function(key, step) {
+        var row = $('<tr />');
+        row.append('<td class="step">' + step.Name + '</td>');
+        table.append(row);
+      });
+    });
+  });
+  return table;
+}
+
 // Function import fron Excel firectly with copy paste to
 function readExcel() {
   var data = $('textarea[name=excel_data]').val(),
   rows = data.split("\n"),
-  table = $('<table />'),
   pages = [],
   groups = [],
   steps = [],
@@ -21,17 +48,14 @@ function readExcel() {
   instructionSheetJSON;
 
   for(var y in rows) {
-      var cells = rows[y].split("\t"),
-          row = $('<tr />');
+    var cells = rows[y].split("\t");
 
       for(var x in cells) {
         var myText = cells[x].split(":");
           if (myText[0]) {
-            $("#formated").html(table);
 
             switch (myText[0].trim().toLowerCase() ) {
               case 'checklist':
-                row.append('<td class="checklist">' + myText[1].trim() + '</td>');
                 instructionSheetJSON = createInstructionSheet({
                   'name': myText[1].trim(),
                   'description': null
@@ -40,7 +64,6 @@ function readExcel() {
                 break;
 
               case 'page':
-                row.append('<td class="page">' + myText[1].trim() + '</td>');
                 instructionSheetJSON.Pages.push(createPage({
                   'name': myText[1].trim(),
                   'description': null
@@ -52,7 +75,6 @@ function readExcel() {
                 break;
 
               case 'group':
-                row.append('<td class="group">' + myText[1].trim() + '</td>');
                 instructionSheetJSON.Pages[currentPage].Groups.push(createGroup({
                   'name': myText[1].trim(),
                   'description': null
@@ -63,8 +85,6 @@ function readExcel() {
                 break;
 
               default:
-                row.append('<td class="step">'+cells[x].trim()+'</td>');
-
                 instructionSheetJSON.Pages[currentPage].Groups[currentGroup].Steps.push(createStep({
                     'name': cells[x].trim(),
                     'description': null,
@@ -78,13 +98,12 @@ function readExcel() {
             // need to copy the default action
         }
       }
-
-      table.append(row);
   }
 
-  $("#formated").html(table);
+  // $("#formated").html("<div class='codeBloc'><pre><code>" + JSON.stringify(instructionSheetJSON) + "</code></pre></div>");
+  $("#formated").html("<div class='codeBloc'><pre><code>" + JSON.stringify(instructionSheetJSON, null, 2) + "</code></pre></div>");
 
-  // $("#outputJSON").html("<div class='codeBloc'><pre><code>" + JSON.stringify(instructionSheetJSON, null, 2) + "</code></pre></div>");
+  $("#tac").html(json2Html(instructionSheetJSON));
 
   // console.log(JSON.stringify(instructionSheetJSON, null, 2));
   return instructionSheetJSON;
@@ -116,7 +135,7 @@ $.getJSON("./temp/config_tactac_dt_config.json", function(data) {
   // $(".excel2Tac").hide();
   loadContent(data, dic, enableD3JS);
 
-  // ********** API *****************
+  // ********** API TESTS *****************
   // getAuthenTac();
   // getByIDInstructionSheet(7);
   // getAllInstructionSheet();
@@ -179,10 +198,9 @@ function loadContent(relevantObjectTypes, relevantObjectTypesDic, enableD3JS) {
     // $.getJSON( "./temp/cw_evolve_diagram.json", function( data ) {
     // $.getJSON( "./temp/cw_diagram_evolve_product_installation.json", function( data ) {
 
-
     var relevantShapes = getRelevantShapes(relevantObjectTypesDic, data.result.diagram.shapes);
     var exportJson = generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, {
-      'name': data.name,
+      'name': data.result.name,
       'description': 'This is the description of this process from Evolve to be used Live in the field thanks to Casewise Tactac.'
     }, data.result.diagram.shapes, false);
 
@@ -192,13 +210,15 @@ function loadContent(relevantObjectTypes, relevantObjectTypesDic, enableD3JS) {
     $("<h4>Loading config file for mapping:</h4>").appendTo("#evo");
     $("<div class='codeBloc'><pre><code>" + JSON.stringify(relevantObjectTypesDic) + "</code></pre></div>").appendTo("#evo");
 
-    $("<h4> Relevant objects parsed from the diagram:</h4>").appendTo("#relevant");
+    $("<h4>Relevant objects parsed from the diagram:</h4>").appendTo("#evo");
     var joiners = getRelevantJoiners(relevantShapes, data.result.diagram.joiners, enableD3JS);
     var processHtml = drawProcessSequenceHtml(relevantShapes, joiners);
-    $(processHtml).appendTo("#relevant");
+    $(processHtml).appendTo("#evo");
 
-    $("<h4>Generating export json</h4>").appendTo("#tac");
-    $("<div class='codeBloc'><pre><code>" + JSON.stringify(exportJson, null, 1) + "</code></pre></div>").appendTo("#tac");
+    // $("<div class='codeBloc'><pre><code>" + JSON.stringify(exportJson) + "</code></pre></div>").appendTo("#formated2");
+    $("<div class='codeBloc'><pre><code>" + JSON.stringify(exportJson, null, 1) + "</code></pre></div>").appendTo("#formated2");
+
+    $("#tac2").html(json2Html(exportJson));
   });
 }
 
@@ -288,12 +308,12 @@ function generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, i
   });
 
   groups.push(createGroup({
-    'name': 'Group name',
+    'name': 'Group 1',
     'description': 'Group description'
   }, steps));
 
   pages.push(createPage({
-    'name': 'Page name',
+    'name': 'Page 1',
     'description': 'Page description'
   }, groups));
 
