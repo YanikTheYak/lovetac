@@ -8,6 +8,90 @@ function arrayObjectIndexOf(myArray, searchTerm, property) {
   return -1;
 }
 
+// Function import fron Excel firectly with copy paste to
+function readExcel() {
+  var data = $('textarea[name=excel_data]').val(),
+  rows = data.split("\n"),
+  table = $('<table />'),
+  pages = [],
+  groups = [],
+  steps = [],
+  currentPage = -1,
+  currentGroup = -1,
+  instructionSheetJSON;
+
+  for(var y in rows) {
+      var cells = rows[y].split("\t"),
+          row = $('<tr />');
+
+      for(var x in cells) {
+        var myText = cells[x].split(":");
+          if (myText[0]) {
+            $("#formated").html(table);
+
+            switch (myText[0].trim().toLowerCase() ) {
+              case 'checklist':
+                row.append('<td class="checklist">' + myText[1].trim() + '</td>');
+                instructionSheetJSON = createInstructionSheet({
+                  'name': myText[1].trim(),
+                  'description': null
+                }, [] );
+                pages = [];
+                break;
+
+              case 'page':
+                row.append('<td class="page">' + myText[1].trim() + '</td>');
+                instructionSheetJSON.Pages.push(createPage({
+                  'name': myText[1].trim(),
+                  'description': null
+                }, [] ));
+
+                currentPage++;
+                currentGroup = -1;
+                groups = [];
+                break;
+
+              case 'group':
+                row.append('<td class="group">' + myText[1].trim() + '</td>');
+                instructionSheetJSON.Pages[currentPage].Groups.push(createGroup({
+                  'name': myText[1].trim(),
+                  'description': null
+                }, [] ));
+
+                currentGroup++;
+                steps = [];
+                break;
+
+              default:
+                row.append('<td class="step">'+cells[x].trim()+'</td>');
+
+                instructionSheetJSON.Pages[currentPage].Groups[currentGroup].Steps.push(createStep({
+                    'name': cells[x].trim(),
+                    'description': null,
+                    'position': 0
+                  },
+                  [] // stepAnswers
+                ));
+            }
+          }
+          else{
+            // need to copy the default action
+        }
+      }
+
+      table.append(row);
+  }
+
+  $("#formated").html(table);
+
+  // $("#outputJSON").html("<div class='codeBloc'><pre><code>" + JSON.stringify(instructionSheetJSON, null, 2) + "</code></pre></div>");
+
+  // console.log(JSON.stringify(instructionSheetJSON, null, 2));
+  return instructionSheetJSON;
+}
+
+// function ...
+
 function containsObject(obj, list) {
   var i;
   for (i = 0; i < list.length; i++) {
@@ -20,36 +104,81 @@ function containsObject(obj, list) {
 
 // ***************  MAIN  ************ Function to 'load JSON' config data
 $.getJSON("./temp/config_tactac_dt_config.json", function(data) {
-  var dic = {};
+  var dic = {}
+    enableD3JS = false;
   // $("<h3>Loading config file (object mapping)</h3>").appendTo(".content");
   $.each(data.ObjectTypes, function(key, objectType) {
     dic[objectType.ScriptName] = objectType;
   });
-
   // $("<div class='codeBloc'><pre><code>" + JSON.stringify(dic) + "</code></pre></div>").appendTo(".content");
   // $("<div class='codeBloc'><pre><code>" + JSON.stringify(dic, null, 2) + "</code></pre></div>").appendTo(".content");
-  // console.info(JSON.stringify(dic, null, 1));
 
-  loadContent(data, dic);
+  // $(".excel2Tac").hide();
+  loadContent(data, dic, enableD3JS);
+
+  // ********** API *****************
   // getAuthenTac();
+  // getByIDInstructionSheet(7);
+  // getAllInstructionSheet();
+
+  return dic;
 });
 
 // Get authentication to Cloud API
 
 function getAuthenTac() {
   $.getJSON('http://tactacauth.azurewebsites.net/api/Login/Authenticate', function(data) {
+
+    $("<div class='codeBloc'><pre><code>" + JSON.stringify(data, null, 1) + "</code></pre></div>").appendTo(".content");
     console.log(JSON.stringify(data, null, 1));
   });
 }
 
+// Post an Instruciton Sheet to Cloud API
+
+function postInstructionSheetTac(token, instructionSheet) {
+  $.getJSON('http://tactacauth.azurewebsites.net/api/Login/Authenticate', function(data) {
+
+    $("<div class='codeBloc'><pre><code>" + JSON.stringify(data, null, 1) + "</code></pre></div>").appendTo(".content");
+    console.log(JSON.stringify(data, null, 1));
+  });
+}
+
+// Get an Instruciton sheet by ID from Cloud API
+
+function getByIDInstructionSheet(id) {
+  $.getJSON('http://tactacapi.azurewebsites.net/api/InstructionSheet/GetByID/' + id, function(data) {
+    $("<h3>getByIDInstructionSheet</h3>").appendTo(".content");
+
+    $("<div class='codeBloc'><pre><code>" + JSON.stringify(data, null, 1) + "</code></pre></div>").appendTo(".content");
+
+    return data;
+    // console.log(JSON.stringify(data, null, 1));
+  });
+}
+
+// Get an Instruciton sheet by ID from Cloud API
+
+function getAllInstructionSheet() {
+  $("<img id='loarder' src='./images/5.gif'>").appendTo(".content");
+
+  var jqxhr = $.getJSON("http://tactacapi.azurewebsites.net/api/InstructionSheet/GetAll")
+    .complete(function() {
+      $( "#loader" ).remove();
+      $("<h3>getAllInstructionSheet</h3>").appendTo(".content");
+      $("<div class='codeBloc'><pre><code>" + JSON.stringify(jqxhr.responseText, null, 1) + "</code></pre></div>").appendTo(".content");
+      // console.log(JSON.stringify(jqxhr.responseText, null, 1));
+    });
+}
+
 // Function to 'load JSON' Love Diagram data
 
-function loadContent(relevantObjectTypes, relevantObjectTypesDic) {
+function loadContent(relevantObjectTypes, relevantObjectTypesDic, enableD3JS) {
   $.getJSON("./temp/cw_evolve_Assess_Customer_Accounts_diagram.json", function(data) {
     // $.getJSON( "./temp/cw_diagram_evolve_basic_steps.json", function( data ) {
     // $.getJSON( "./temp/cw_evolve_diagram.json", function( data ) {
     // $.getJSON( "./temp/cw_diagram_evolve_product_installation.json", function( data ) {
-    $("<h3>Loading diagram content file</h3>").appendTo(".content");
+
 
     var relevantShapes = getRelevantShapes(relevantObjectTypesDic, data.result.diagram.shapes);
     var exportJson = generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, {
@@ -57,15 +186,19 @@ function loadContent(relevantObjectTypes, relevantObjectTypesDic) {
       'description': 'This is the description of this process from Evolve to be used Live in the field thanks to Casewise Tactac.'
     }, data.result.diagram.shapes, false);
 
-    $("<h4> Diagram Name: " + data.result.name + "</h4>").appendTo(".content");
-    $("<img src='./temp/cw_evolve_Assess_Customer_Accounts_diagram.png' width='90%'></img>").appendTo(".content");
+    $("<h4>Loading diagram \"" + data.result.name + "\":</h4>").appendTo("#evo");
+    $("<img src='./temp/cw_evolve_Assess_Customer_Accounts_diagram.png' width='90%'></img>").appendTo("#evo");
 
-    var joiners = getRelevantJoiners(relevantShapes, data.result.diagram.joiners, false);
+    $("<h4>Loading config file for mapping:</h4>").appendTo("#evo");
+    $("<div class='codeBloc'><pre><code>" + JSON.stringify(relevantObjectTypesDic) + "</code></pre></div>").appendTo("#evo");
+
+    $("<h4> Relevant objects parsed from the diagram:</h4>").appendTo("#relevant");
+    var joiners = getRelevantJoiners(relevantShapes, data.result.diagram.joiners, enableD3JS);
     var processHtml = drawProcessSequenceHtml(relevantShapes, joiners);
-    $(processHtml).appendTo(".content");
+    $(processHtml).appendTo("#relevant");
 
-    $("<h3>Generating export json</h3>").appendTo(".content");
-    $("<div class='codeBloc'><pre><code>" + JSON.stringify(exportJson, null, 1) + "</code></pre></div>").appendTo(".content");
+    $("<h4>Generating export json</h4>").appendTo("#tac");
+    $("<div class='codeBloc'><pre><code>" + JSON.stringify(exportJson, null, 1) + "</code></pre></div>").appendTo("#tac");
   });
 }
 
@@ -158,14 +291,16 @@ function generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, i
     'name': 'Group name',
     'description': 'Group description'
   }, steps));
+
   pages.push(createPage({
     'name': 'Page name',
     'description': 'Page description'
   }, groups));
+
   instructionSheetJSON = createInstructionSheet({
     'name': instructionSheet.name,
     'description': instructionSheet.description
-  }, groups);
+  }, pages);
 
   return instructionSheetJSON;
 }
@@ -228,10 +363,10 @@ function createGroup(group, steps) { //, page, instructionSheet) {
 
 function createStep(step, stepAnswers) { //, group, page, instructionSheet) {
   var stepJSON = {
-    // "StepID": 136,
-    // "GroupID": 63,
-    // "PageID": 27,
-    // "InstructionSheetID": 10,
+    // "StepID": 0,
+    // "GroupID": 0,
+    // "PageID": 0,
+    // "InstructionSheetID": 0,
     "Name": step.name,
     "Description": step.description,
     "ImageURL": null,

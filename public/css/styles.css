@@ -1,25 +1,44 @@
-html {
-
-}
-
 body {
     font-family: arial, serif;
-    font-size: 16px;
+    font-size: 12px;
     margin: 0;
     padding: 0;
     height: 100%;
     background-color: #fff;
-
 }
 
 pre {
-  background:none repeat scroll #f9f9f9;
-  border-left:5px solid #ccc;
+/*  background:none repeat scroll #f9f9f9;*/
+/*  border-left:5px solid #ccc;*/
+/*  border: 2px solid #ccc;*/
   clear:both;
   font:normal normal normal 11px/18px Monaco, monospace;
   margin-bottom:18px;
   overflow:auto;
   padding:10px 15px;
+}
+
+img.logo {
+  position: relative; /* or fixed or absolute */
+  height: 60px;
+  left: 25%;
+}
+
+.excel {
+  background-color: #018641;
+}
+.evolve {
+  background-color: #2e82ba;
+}
+.tactac {
+  background-color: #68cf9b;
+}
+
+textarea {
+  margin-left: 3%;
+  border: 2px solid #018641;
+  width: 90%;
+  height: 200px;
 }
 
 .codeBloc {
@@ -29,6 +48,27 @@ pre {
 .content {
   margin: 10px;
   padding: 0;
+}
+
+#loader {
+  position: fixed; /* or absolute */
+  top: 25%;
+  left: 25%;
+}
+
+.excel2Tac > *, .evo2tac > * {
+  width: 33%;
+  vertical-align: top;
+/*  height: 600px;*/
+  border: 1px solid #c3c3c3;
+}
+
+.excel2Tac, .evo2tac {
+    width: 100%;
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-direction: row; /* Safari 6.1+ */
+    display: flex;
+    flex-direction: row;
 }
 
 .header {
@@ -43,6 +83,25 @@ pre {
 .connectorset {
   background: rgb(255, 192, 203, 0.5); /*pink;*/
   border: 3px solid rgb(255, 192, 203, 0.5);
+}
+
+.checklist {
+  background: #94BCA7;
+  border: 3px solid #94BCA7;
+  color: #fff;
+  font-weight: bold;
+}
+
+.page {
+  background: #DEE6EE;
+  border: 3px solid #DEE6EE;
+  font-weight: bold;
+}
+
+.group {
+  background: #eff2f6;
+  border: 3px solid #eff2f6;
+  font-weight: bold;
 }
 
 .Process {
