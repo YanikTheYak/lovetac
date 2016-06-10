@@ -2,28 +2,73 @@
   <head>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
-
   </head>
 
-  <body>
-    <h1 class='header'>Prototype</h1>
+  <body onload="main(); displayExcelImport();">
+
+    <!-- <i class="material-icons">insert_chart</i> -->
+
+    <h1 class='header'> Dashboard</h1>
+
+    <div class="indicator green">
+      <!-- <i class="material-icons">library_books</i> -->
+      <i class="material-icons">done_all</i>
+      <div class="title"> Jobs</div>
+      <div class="value"> 24 Completed / 7 Open</div>
+    </div>
+
+    <div class="indicator amber">
+      <!-- <i class="material-icons">report_problem</i> -->
+      <i class="material-icons">record_voice_over</i>
+      <div class="title"> Problems</div>
+      <div class="value"> 31 raised</div>
+    </div>
+
+    <div class="indicator blue">
+      <i class="material-icons">comment</i>
+      <div class="title"> Comments</div>
+      <div class="value"> 231 New / 1703 Comments</div>
+    </div>
+
+    <div class="indicator red">
+      <!-- <i class="material-icons">trending_up</i> -->
+      <i class="material-icons">alarm</i>
+      <div class="title"> Jobs duration</div>
+      <div class="value"> ▼ 130 days (on average)</div>
+    </div>
+
+    <div class="indicator">
+      <i class="material-icons">av_timer</i>
+      <div class="title"> Indicator #</div>
+      <div class="value"> 10 days</div>
+    </div>
+
+
+    </br>
+
+    <div class="chart" id="chart_div_numberOfJobsPerIs"></div>
+    <div class="chart" id="chart_div_averageDurationOfJobs"></div>
+    <div class="chart" id="chart_div_ColumnChart"></div>
+
+<!-- <img src="http://chart.apis.google.com/chart?cht=pc&chs=500x250&chdl=first+legend%7Csecond+legend%7Cthird+legend|legend+four%7Clegend+five%7Clegend+six&chl=first+label%7Csecond+label%7Cthird+label|label+four%7Clabel+five%7Clabel+six&chco=FF0000|00FFFF|00FF00,6699CC|CC33FF|CCCC33&chtt=My+Google+Chart&chts=000000,24&chd=t:5,10,50|25,35,45" /> -->
+
+
+    <h1 class='header'>Import from Excel</h1>
 
     <div class='excel2Tac'>
       <div>
+
           <img class='logo' src='./images/excel.png'></img>
 
-          <textarea name='excel_data'  onkeyup="readExcel();" onchange="readExcel();">Checklist: My checklist title
+          <textarea name='excel_data'  onkeyup="readExcel();" onchange="displayExcelImport();">Checklist: My checklist title
 Page: Room cleaning
 Group: First impression
 Entry door free of scuff marks
 Curtains and sheers straight
 Lights are functioning
-Rooms smells fresh (no smoke / bleach smell)
-Furniture in proper position
-A/C vent free of dust + clean
-All lights should be off and only desk lamp on for VIP
 Group:Entry area
 Door clean and chain latch in place
 Pictures frames and baseboards dust free
@@ -31,17 +76,15 @@ Walls free of marks and stains
 Group:TV
 Armoire and TV free of dust (top and back also)
 Remote control is clean and placed on top of TV guide which is in good condition
-These should be placed on the right side of TV facing forward
-DVD player is clean, working and empty
-Glass top / marble top clean and free of stain
 Group:Private bar
 Ice bucket / tongs in place and replenished
 Glass clean, mirror clean
 Private bar menu in place
 Group:Safe box
 Dust free and empty
-Drawers are clean
-Group:Living area
+Drawers are clean</textarea>
+
+<!-- Group:Living area
 Lamp / Lampshade clean
 Light bulbs working
 Sofa / Lounge chair clean + spot free
@@ -63,36 +106,56 @@ All lights should be off and only desk lamp on for VIP
 Group:Entry area
 Door clean and chain latch in place
 Pictures frames and baseboards dust free
-Walls free of marks and stains</textarea>
-
+Walls free of marks and stains -->
       </div>
 
-      <div>
-        <!-- <img class='logo' src='./images/azure.png'></img> -->
+      <!-- <div>
+        <img class='logo' src='./images/azure.png'></img>
         <div id='formated'></div>
-      </div>
+      </div> -->
 
       <div>
         <img class='logo' src='./images/tactac.png'></img>
+        PREVIEW
         <div id='tac'></div>
       </div>
 
     </div>
 
+    <h1 class='header'>Import from Evolve</h1>
+
     <div class='evo2tac'>
       <div id='evo'>
-        <img class='evolve' src='./images/evolve_w.png'></img>
+        <img class='logo evolve' src='./images/evolve_w.png'></img>
       </div>
-      <div id='formated2'>
 
-      </div>
-      <div id='tac2'>
+      <!-- <div id='formated2'>      </div> -->
+
+      <div>
         <img class='logo' src='./images/tactac.png'></img>
+        <div id='tac2'></div>
       </div>
     </div>
 
-    <script src="js/app.js"></script>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="js/googleCharts.js"></script>
+    <script src="js/jquery.md5.js"></script>
+
+
+    <script src="js/evolvePlugin.js"></script>
+    <script src="js/graphD3JS.js"></script>
+    <script src="js/apiCloud.js"></script>
+    <script src="js/createHTML.js"></script>
+    <script src="js/createJSON.js"></script>
+
+    <script src="js/excelPlugin.js"></script>
+    <script src="js/graph.js"></script>
+
+    <script src="js/graph.js"></script>
     <script src="js/main.js"></script>
+
   </body>
 </html>
 

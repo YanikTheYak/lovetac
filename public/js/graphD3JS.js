@@ -48,6 +48,7 @@ function drawGraphD3JS(nodes, links) {
     .charge(-500)
     .on('tick', tick)
 
+
   // define arrow markers for graph links
   svg.append('svg:defs').append('svg:marker')
     .attr('id', 'end-arrow')

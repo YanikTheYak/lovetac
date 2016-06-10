@@ -1,0 +1,509 @@
+{
+  "InstructionSheetID": 36,
+  "Name": "Guillaume test",
+  "Description": "my description",
+  "ImageURL": null,
+  "Status": null,
+  "SLA": null,
+  "MainContactID": 0,
+  "Version": 0,
+  "ImageFile": null,
+  "AllSteps": null,
+  "Pages": [
+    {
+      "PageID": 72,
+      "Name": "Main page",
+      "Description": null,
+      "Position": 0,
+      "InstructionSheetID": 36,
+      "Groups": [
+        {
+          "GroupID": 149,
+          "Name": "First checks",
+          "Position": 0,
+          "PageID": 72,
+          "InstructionSheetID": 36,
+          "Steps": [
+            {
+              "StepID": 320,
+              "GroupID": 149,
+              "PageID": 72,
+              "InstructionSheetID": 36,
+              "Name": "Step 1",
+              "Description": null,
+              "ImageURL": null,
+              "Image2URL": null,
+              "Image3URL": null,
+              "ProofRequired": false,
+              "ProofType": 0,
+              "StepPosition": 0,
+              "AnswerSet": 1,
+              "ImageGroupID": null,
+              "Position": 0,
+              "TempID": "468ffd33-6474-481d-a637-b230f600bd8b",
+              "Image1Data": null,
+              "StepAnswers": [
+                {
+                  "RecordID": 121,
+                  "AnswerText": "Yes",
+                  "TargetStepID": 0,
+                  "AnswerSetID": 1,
+                  "AnswerID": 1,
+                  "StepID": 320,
+                  "TempTargetStepID": null
+                },
+                {
+                  "RecordID": 122,
+                  "AnswerText": "No",
+                  "TargetStepID": 0,
+                  "AnswerSetID": 1,
+                  "AnswerID": 2,
+                  "StepID": 320,
+                  "TempTargetStepID": null
+                },
+                {
+                  "RecordID": 123,
+                  "AnswerText": "NA",
+                  "TargetStepID": 0,
+                  "AnswerSetID": 1,
+                  "AnswerID": 3,
+                  "StepID": 320,
+                  "TempTargetStepID": null
+                }
+              ]
+            },
+            {
+              "StepID": 321,
+              "GroupID": 149,
+              "PageID": 72,
+              "InstructionSheetID": 36,
+              "Name": "Step 2",
+              "Description": null,
+              "ImageURL": null,
+              "Image2URL": null,
+              "Image3URL": null,
+              "ProofRequired": false,
+              "ProofType": 0,
+              "StepPosition": 0,
+              "AnswerSet": 1,
+              "ImageGroupID": null,
+              "Position": 0,
+              "TempID": "c6bbe058-4e63-49b1-b8f3-c15cd77f3f46",
+              "Image1Data": null,
+              "StepAnswers": [
+                {
+                  "RecordID": 124,
+                  "AnswerText": "Yes",
+                  "TargetStepID": 0,
+                  "AnswerSetID": 1,
+                  "AnswerID": 1,
+                  "StepID": 321,
+                  "TempTargetStepID": null
+                },
+                {
+                  "RecordID": 125,
+                  "AnswerText": "No",
+                  "TargetStepID": 0,
+                  "AnswerSetID": 1,
+                  "AnswerID": 2,
+                  "StepID": 321,
+                  "TempTargetStepID": null
+                },
+                {
+                  "RecordID": 126,
+                  "AnswerText": "NA",
+                  "TargetStepID": 0,
+                  "AnswerSetID": 1,
+                  "AnswerID": 3,
+                  "StepID": 321,
+                  "TempTargetStepID": null
+                }
+              ]
+            },
+            {
+              "StepID": 322,
+              "GroupID": 149,
+              "PageID": 72,
+              "InstructionSheetID": 36,
+              "Name": "Step 3",
+              "Description": null,
+              "ImageURL": null,
+              "Image2URL": null,
+              "Image3URL": null,
+              "ProofRequired": false,
+              "ProofType": 0,
+              "StepPosition": 0,
+              "AnswerSet": 1,
+              "ImageGroupID": null,
+              "Position": 0,
+              "TempID": "a9872b69-ae32-40f9-bbe7-0d6d55a9e1d9",
+              "Image1Data": null,
+              "StepAnswers": [
+                {
+                  "RecordID": 127,
+                  "AnswerText": "Yes",
+                  "TargetStepID": 0,
+                  "AnswerSetID": 1,
+                  "AnswerID": 1,
+                  "StepID": 322,
+                  "TempTargetStepID": null
+                },
+                {
+                  "RecordID": 128,
+                  "AnswerText": "No",
+                  "TargetStepID": 0,
+                  "AnswerSetID": 1,
+                  "AnswerID": 2,
+                  "StepID": 322,
+                  "TempTargetStepID": null
+                },
+                {
+                  "RecordID": 129,
+                  "AnswerText": "NA",
+                  "TargetStepID": 0,
+                  "AnswerSetID": 1,
+                  "AnswerID": 3,
+                  "StepID": 322,
+                  "TempTargetStepID": null
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "ImageURL": null,
+      "ImageData": null
+    }
+  ],
+  "JobTitlePageFields": [
+    {
+      "FieldID": 105,
+      "FieldName": "Job Name",
+      "FieldType": null,
+      "PlaceHolderText": "Job Name",
+      "TempID": null,
+      "InstructionSheetID": 36,
+      "IsNew": false
+    },
+    {
+      "FieldID": 106,
+      "FieldName": "Start Date",
+      "FieldType": null,
+      "PlaceHolderText": "Start Date",
+      "TempID": null,
+      "InstructionSheetID": 36,
+      "IsNew": false
+    },
+    {
+      "FieldID": 107,
+      "FieldName": "Context",
+      "FieldType": null,
+      "PlaceHolderText": "Context",
+      "TempID": null,
+      "InstructionSheetID": 36,
+      "IsNew": false
+    }
+  ],
+  "Groups": [
+    {
+      "GroupID": 149,
+      "Name": "First checks",
+      "Position": 0,
+      "PageID": 72,
+      "InstructionSheetID": 36,
+      "Steps": [
+        {
+          "StepID": 320,
+          "GroupID": 149,
+          "PageID": 72,
+          "InstructionSheetID": 36,
+          "Name": "Step 1",
+          "Description": null,
+          "ImageURL": null,
+          "Image2URL": null,
+          "Image3URL": null,
+          "ProofRequired": false,
+          "ProofType": 0,
+          "StepPosition": 0,
+          "AnswerSet": 1,
+          "ImageGroupID": null,
+          "Position": 0,
+          "TempID": "468ffd33-6474-481d-a637-b230f600bd8b",
+          "Image1Data": null,
+          "StepAnswers": [
+            {
+              "RecordID": 121,
+              "AnswerText": "Yes",
+              "TargetStepID": 0,
+              "AnswerSetID": 1,
+              "AnswerID": 1,
+              "StepID": 320,
+              "TempTargetStepID": null
+            },
+            {
+              "RecordID": 122,
+              "AnswerText": "No",
+              "TargetStepID": 0,
+              "AnswerSetID": 1,
+              "AnswerID": 2,
+              "StepID": 320,
+              "TempTargetStepID": null
+            },
+            {
+              "RecordID": 123,
+              "AnswerText": "NA",
+              "TargetStepID": 0,
+              "AnswerSetID": 1,
+              "AnswerID": 3,
+              "StepID": 320,
+              "TempTargetStepID": null
+            }
+          ]
+        },
+        {
+          "StepID": 321,
+          "GroupID": 149,
+          "PageID": 72,
+          "InstructionSheetID": 36,
+          "Name": "Step 2",
+          "Description": null,
+          "ImageURL": null,
+          "Image2URL": null,
+          "Image3URL": null,
+          "ProofRequired": false,
+          "ProofType": 0,
+          "StepPosition": 0,
+          "AnswerSet": 1,
+          "ImageGroupID": null,
+          "Position": 0,
+          "TempID": "c6bbe058-4e63-49b1-b8f3-c15cd77f3f46",
+          "Image1Data": null,
+          "StepAnswers": [
+            {
+              "RecordID": 124,
+              "AnswerText": "Yes",
+              "TargetStepID": 0,
+              "AnswerSetID": 1,
+              "AnswerID": 1,
+              "StepID": 321,
+              "TempTargetStepID": null
+            },
+            {
+              "RecordID": 125,
+              "AnswerText": "No",
+              "TargetStepID": 0,
+              "AnswerSetID": 1,
+              "AnswerID": 2,
+              "StepID": 321,
+              "TempTargetStepID": null
+            },
+            {
+              "RecordID": 126,
+              "AnswerText": "NA",
+              "TargetStepID": 0,
+              "AnswerSetID": 1,
+              "AnswerID": 3,
+              "StepID": 321,
+              "TempTargetStepID": null
+            }
+          ]
+        },
+        {
+          "StepID": 322,
+          "GroupID": 149,
+          "PageID": 72,
+          "InstructionSheetID": 36,
+          "Name": "Step 3",
+          "Description": null,
+          "ImageURL": null,
+          "Image2URL": null,
+          "Image3URL": null,
+          "ProofRequired": false,
+          "ProofType": 0,
+          "StepPosition": 0,
+          "AnswerSet": 1,
+          "ImageGroupID": null,
+          "Position": 0,
+          "TempID": "a9872b69-ae32-40f9-bbe7-0d6d55a9e1d9",
+          "Image1Data": null,
+          "StepAnswers": [
+            {
+              "RecordID": 127,
+              "AnswerText": "Yes",
+              "TargetStepID": 0,
+              "AnswerSetID": 1,
+              "AnswerID": 1,
+              "StepID": 322,
+              "TempTargetStepID": null
+            },
+            {
+              "RecordID": 128,
+              "AnswerText": "No",
+              "TargetStepID": 0,
+              "AnswerSetID": 1,
+              "AnswerID": 2,
+              "StepID": 322,
+              "TempTargetStepID": null
+            },
+            {
+              "RecordID": 129,
+              "AnswerText": "NA",
+              "TargetStepID": 0,
+              "AnswerSetID": 1,
+              "AnswerID": 3,
+              "StepID": 322,
+              "TempTargetStepID": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Steps": [
+    {
+      "StepID": 320,
+      "GroupID": 149,
+      "PageID": 72,
+      "InstructionSheetID": 36,
+      "Name": "Step 1",
+      "Description": null,
+      "ImageURL": null,
+      "Image2URL": null,
+      "Image3URL": null,
+      "ProofRequired": false,
+      "ProofType": 0,
+      "StepPosition": 0,
+      "AnswerSet": 1,
+      "ImageGroupID": null,
+      "Position": 0,
+      "TempID": "468ffd33-6474-481d-a637-b230f600bd8b",
+      "Image1Data": null,
+      "StepAnswers": [
+        {
+          "RecordID": 121,
+          "AnswerText": "Yes",
+          "TargetStepID": 0,
+          "AnswerSetID": 1,
+          "AnswerID": 1,
+          "StepID": 320,
+          "TempTargetStepID": null
+        },
+        {
+          "RecordID": 122,
+          "AnswerText": "No",
+          "TargetStepID": 0,
+          "AnswerSetID": 1,
+          "AnswerID": 2,
+          "StepID": 320,
+          "TempTargetStepID": null
+        },
+        {
+          "RecordID": 123,
+          "AnswerText": "NA",
+          "TargetStepID": 0,
+          "AnswerSetID": 1,
+          "AnswerID": 3,
+          "StepID": 320,
+          "TempTargetStepID": null
+        }
+      ]
+    },
+    {
+      "StepID": 321,
+      "GroupID": 149,
+      "PageID": 72,
+      "InstructionSheetID": 36,
+      "Name": "Step 2",
+      "Description": null,
+      "ImageURL": null,
+      "Image2URL": null,
+      "Image3URL": null,
+      "ProofRequired": false,
+      "ProofType": 0,
+      "StepPosition": 0,
+      "AnswerSet": 1,
+      "ImageGroupID": null,
+      "Position": 0,
+      "TempID": "c6bbe058-4e63-49b1-b8f3-c15cd77f3f46",
+      "Image1Data": null,
+      "StepAnswers": [
+        {
+          "RecordID": 124,
+          "AnswerText": "Yes",
+          "TargetStepID": 0,
+          "AnswerSetID": 1,
+          "AnswerID": 1,
+          "StepID": 321,
+          "TempTargetStepID": null
+        },
+        {
+          "RecordID": 125,
+          "AnswerText": "No",
+          "TargetStepID": 0,
+          "AnswerSetID": 1,
+          "AnswerID": 2,
+          "StepID": 321,
+          "TempTargetStepID": null
+        },
+        {
+          "RecordID": 126,
+          "AnswerText": "NA",
+          "TargetStepID": 0,
+          "AnswerSetID": 1,
+          "AnswerID": 3,
+          "StepID": 321,
+          "TempTargetStepID": null
+        }
+      ]
+    },
+    {
+      "StepID": 322,
+      "GroupID": 149,
+      "PageID": 72,
+      "InstructionSheetID": 36,
+      "Name": "Step 3",
+      "Description": null,
+      "ImageURL": null,
+      "Image2URL": null,
+      "Image3URL": null,
+      "ProofRequired": false,
+      "ProofType": 0,
+      "StepPosition": 0,
+      "AnswerSet": 1,
+      "ImageGroupID": null,
+      "Position": 0,
+      "TempID": "a9872b69-ae32-40f9-bbe7-0d6d55a9e1d9",
+      "Image1Data": null,
+      "StepAnswers": [
+        {
+          "RecordID": 127,
+          "AnswerText": "Yes",
+          "TargetStepID": 0,
+          "AnswerSetID": 1,
+          "AnswerID": 1,
+          "StepID": 322,
+          "TempTargetStepID": null
+        },
+        {
+          "RecordID": 128,
+          "AnswerText": "No",
+          "TargetStepID": 0,
+          "AnswerSetID": 1,
+          "AnswerID": 2,
+          "StepID": 322,
+          "TempTargetStepID": null
+        },
+        {
+          "RecordID": 129,
+          "AnswerText": "NA",
+          "TargetStepID": 0,
+          "AnswerSetID": 1,
+          "AnswerID": 3,
+          "StepID": 322,
+          "TempTargetStepID": null
+        }
+      ]
+    }
+  ],
+  "ImageData": null
+}

@@ -1,0 +1,37 @@
+
+-        Users should be able to upload Job Progress from Tablet to Web
+o          This should be cached locally
+o          This should update the server whenever there is a connection (no manual save button)
+-        *done? Platform Administrators should be able to create, read, update and delete users
+-        *done? Platform Administrators should be able to assign roles,
+-        *done? Platform Administrators should be able to manage password recovery.
+-        *done? Casewise should be able to create, read, update, delete customer platforms and provision the platform administrator.
+-        Users should be able to access the instruction sheet library AND ALL ITS CONTENT (inc. images) which should be filtered based on users roles and instruction sheet visibility.
+-        Platform administrators, should only see platforms that belong to them (initially, only 1 platform)
+-        Editors should be able to create, read, update and delete any instruction sheet.
+-        Editors should be able to upload photos for Instruction Sheets (Web)
+-        Editor should be able to define custom responses for each step (AND REUSE THEM FROM ONE TO ANOTHER STEP)
+-        Editors should be able to ASSOCIATED a role to an Instruction Sheet
+-        Editors should be able to edit an instruction sheet, and no have users see it, until it is published
+-        Managers should be able to start/ASSIGN a job for a user to complete
+-        Users should be notified of new jobs for them
+-        *done? Users should be able to start a NEW JOB on his/her own
+-        Users should be able to start a job, assigned to them
+-        *done? Users should be able to capture feedback on a step within a job.
+-        Managers should have a dashboard that shows the result of jobs executed
+
+-        Users should be able to generate and export a PDF from the executed content of job in the form of a simple report.
+-        *done? Users should be able to start and edit a job from an instruction sheet.
+-        Users should be able to upload a photo to accompany the Job step result (Tablet)
+-        Managers should be able to read and update any job, steps and feedback.
+o          Including viewing photos loaded by user executing the job
+-        Managers should be able to drill into the dashboard to identify the jobs
+-        Platform Administrators should be able to bulk insert or update users.
+-        Users should be able to provide feedback on an instruction sheet and/or individual steps.
+-        Users should be able to see feedback from other team members for any given step within a job.
+-        Users should be able to preview all steps of an instruction sheet without executing it.
+-        Casewise should be able to migrate a customer platform between cloud services.
+-        Users should be notified when a new Instruction sheet is available.
+-        Users should be notified when an existing Instruction sheet has been updated.
+-        Users should be able to review, vote and rank feedback.
+-        Users should be able to record sound.
