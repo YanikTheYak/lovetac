@@ -1,1 +1,4 @@
-<?php include_once("./public/index.html"); ?>
+<?php
+ // include_once("home.html");
+ header('Location: /public/index.html');
+ ?>
