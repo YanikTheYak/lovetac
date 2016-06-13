@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  </head>
+
+  <body onload="main(); displayExcelImport();">
+
+    <h1 class='header'>Import from Excel</h1>
+
+    <div class='excel2Tac'>
+      <div>
+
+          <img class='logo' src='./images/excel.png'></img>
+
+          <textarea name='excel_data'  onkeyup="readExcel();" onchange="displayExcelImport();">Checklist: My checklist title
+Page: Room cleaning
+Group: First impression
+Entry door free of scuff marks
+Curtains and sheers straight
+Lights are functioning
+Group:Entry area
+Door clean and chain latch in place
+Pictures frames and baseboards dust free
+Walls free of marks and stains
+Group:TV
+Armoire and TV free of dust (top and back also)
+Remote control is clean and placed on top of TV guide which is in good condition
+Group:Private bar
+Ice bucket / tongs in place and replenished
+Glass clean, mirror clean
+Private bar menu in place
+Group:Safe box
+Dust free and empty
+Drawers are clean</textarea>
+
+<!-- Group:Living area
+Lamp / Lampshade clean
+Light bulbs working
+Sofa / Lounge chair clean + spot free
+Cushions are clean and neatly placed
+Coffee table is clean and has no stain
+Areas underneath sofa/lounge chair clean and dust free
+Proper magazines are in place, in good condition, and neatly arranged
+Picture frames are clean and free of dust
+Baseboard around the room free of dust + stains
+Page: Room cleaning
+Group: First impression
+Entry door free of scuff marks
+Curtains and sheers straight
+Lights are functioning
+Rooms smells fresh (no smoke / bleach smell)
+Furniture in proper position
+A/C vent free of dust + clean
+All lights should be off and only desk lamp on for VIP
+Group:Entry area
+Door clean and chain latch in place
+Pictures frames and baseboards dust free
+Walls free of marks and stains -->
+      </div>
+
+      <!-- <div>
+        <img class='logo' src='./images/azure.png'></img>
+        <div id='formated'></div>
+      </div> -->
+
+      <div id='downloadtac'>
+        <img class='logo' src='./images/tactac.png'></img>
+        PREVIEW
+        <div id='tac'></div>
+      </div>
+
+    </div>
+
+    <script src="js/createHTML.js"></script>
+    <script src="js/createJSON.js"></script>
+    <script src="js/excelPlugin.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+
+
