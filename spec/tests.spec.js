@@ -20,7 +20,7 @@
         base_result = data;
         // console.log(base_result);
         $.getJSON("/base/spec/api_IS_input.json", function(generatedJson) {
-          htmlTable = json2Html(generatedJson)[0].outerHTML;
+          htmlTable = json2HtmlTable(generatedJson)[0].outerHTML;
           // console.log(htmlTable);
           expect(htmlTable).toEqual(base_result);
           done();
@@ -34,7 +34,7 @@
         base_result = data;
         // console.log(base_result);
         $.get("/base/spec/excel_input_hotel.txt", function(excelInput) {
-          htmlTable = json2Html(readExcel(excelInput))[0].outerHTML;
+          htmlTable = json2HtmlTable(readExcel(excelInput))[0].outerHTML;
           // console.log(htmlTable);
           expect(htmlTable).toEqual(base_result);
           done();
@@ -48,7 +48,7 @@
         base_result = data;
         // console.log(base_result);
         $.get("/base/spec/excel_input_hotel_without_page.txt", function(excelInput) {
-          htmlTable = json2Html(readExcel(excelInput))[0].outerHTML;
+          htmlTable = json2HtmlTable(readExcel(excelInput))[0].outerHTML;
           // console.log(htmlTable);
           expect(htmlTable).toEqual(base_result);
           done();
@@ -62,7 +62,7 @@
     //     base_result = data;
     //     // console.log(base_result);
     //     $.get("/base/spec/excel_input_hotel.txt", function(excelInput) {
-    //       htmlTable = json2Html(readExcel(excelInput))[0].outerHTML;
+    //       htmlTable = json2HtmlTable(readExcel(excelInput))[0].outerHTML;
     //       // console.log(htmlTable);
     //       expect(htmlTable).toEqual(base_result);
     //       done();

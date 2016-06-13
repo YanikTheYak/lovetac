@@ -1,7 +1,7 @@
 
 // Format JSON in HTML
 
-function json2Html(myJSON) {
+function json2HtmlTable(myJSON) {
 
   if(myJSON && myJSON != ''){
   var table = $('<table />'),
@@ -35,6 +35,43 @@ function json2Html(myJSON) {
 }
 else {return '';}
 }
+
+
+// Get next step when a step is followed by a XOR return a list
+
+function getNextStep(relevantShapes, joiners, oSeq) {
+  var genealogyTree = getParentsAndChildrenFromListOfJoiners(joiners);
+
+  joiners.forEach( function( joiner) {
+    if(joiner.sourceKey == oSeq) {
+      trgObj = relevantShapes[joiner.targetKey];
+      trgOT = trgObj.cwObject.objectTypeScriptName;
+      switch (srcOT) {
+        case 'process':
+          // add step
+          return
+          break;
+        case 'connectorset':
+          // guess next steps
+
+          genealogyTree.parents.forEach( function( shape) {
+            if (shape ==  joiner.sourceKey) {
+              return shape.children;
+            }
+          });
+
+          break;
+      }
+    }
+  });
+  srcOT = srcObj.cwObject.objectTypeScriptName;
+  trgOT = trgObj.cwObject.objectTypeScriptName;
+  switch (srcOT) {
+
+  }
+}
+
+
 
 // Draw process tree in HTML
 
@@ -114,8 +151,7 @@ function drawProcessSequenceHtml(relevantShapes, joiners) {
         console.error(trgOT + ' >> This source object is unknown');
     }
 
-    outputHtml += '<li><div class="objecttype ' + srcOT + '">' + srcOT + '</div> ' +
-    srcObj.cwObject.properties.name + ' <div class="objecttype ' + trgOT + '">' + trgOT + '</div> ' + trgObj.cwObject.properties.name + '</li>';
+    outputHtml += '<li><div class="objecttype ' + srcOT + '">' + srcOT + '</div> ' + srcObj.cwObject.properties.name + ' <div class="objecttype ' + trgOT + '">' + trgOT + '</div> ' + trgObj.cwObject.properties.name + '</li>';
 
 
   });

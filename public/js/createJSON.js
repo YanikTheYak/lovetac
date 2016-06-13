@@ -117,8 +117,10 @@ function createStep(step, stepAnswers) { //, group, page, instructionSheet) {
 }
 
 // Create Step answers
+//    {'AnswerText': 'text', 'AnswerSetID': answerSetID, 'AnswerID': answerId++, 'TempTargetStepID': targetSeq}
 
 function createStepAnswers(stepAnswers) { //, page, instructionSheet) {
+
   var answerJSON = {};
   if(stepAnswers) {
   stepAnswers.forEach( function(answer) {
@@ -127,6 +129,8 @@ function createStepAnswers(stepAnswers) { //, page, instructionSheet) {
         "AnswerSetID": 1, // ref to set of answers
         "AnswerID": 1, //pos
         "TempTargetStepID": answer.TempTargetStepID
+
+
       })
     });
   } else {answerJSON = null}

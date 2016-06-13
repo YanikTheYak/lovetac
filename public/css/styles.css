@@ -108,7 +108,7 @@ textarea {
 }
 
 .excel2Tac > *, .evo2tac > * {
-  width: 45%;
+  width: 50%;
   vertical-align: top;
 /*  height: 600px;*/
   border: 1px solid #ddd;

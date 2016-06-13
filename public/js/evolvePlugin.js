@@ -24,9 +24,10 @@ function loadContent(relevantObjectTypes, relevantObjectTypesDic, enableD3JS) {
     $(processHtml).appendTo("#evo");
 
     $("<div class='codeBloc'><pre><code>" + JSON.stringify(exportJson) + "</code></pre></div>").appendTo("#formated2");
+    $(downloadJSON(exportJson)).appendTo("#downloadtac");
     // $("<div class='codeBloc'><pre><code>" + JSON.stringify(exportJson, null, 1) + "</code></pre></div>").appendTo("#formated2");
 
-    $("#tac2").html(json2Html(exportJson));
+    $("#tac2").html(json2HtmlTable(exportJson));
   });
 }
 
@@ -79,13 +80,15 @@ function generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, i
 
     switch (posInRelevantDic.TactacObject) {
       case 'step':
-        console.info(shape['cwObject']['objectTypeScriptName'] + ': ' + oName + ' >> This object has been used to create a step');
+        // console.info(shape['cwObject']['objectTypeScriptName'] + ': ' + oName + ' >> This object has been used to create a step');
         steps.push(createStep({
             'name': oName,
             'description': oDesc,
             'position': oSeq
           },
           null // stepAnswers
+          // INPUT: oSeq
+          // {'AnswerText': 'text', 'AnswerSetID': answerSetID, 'AnswerID': answerId++, 'TempTargetStepID': targetSeq}
         ));
         nbStep++;
         break;
@@ -94,28 +97,28 @@ function generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, i
         switch (evtrsltType) {
           case '4':
           case '1':
-            console.warn('Result: ' + oName + ' >> This object has been ignored');
+            // console.warn('Result: ' + oName + ' >> This object has been ignored');
             nbResult++;
             break;
           case '0':
           case '2':
-            console.warn('Event: ' + oName + ' >> This object has been ignored');
+            // console.warn('Event: ' + oName + ' >> This object has been ignored');
             nbEvent++;
             break;
           default:
-            console.error(shape['cwObject']['objectTypeScriptName'] + ': ' + oName + ' of type:' + evtrsltType + ' >> This object has not been selected, check your config file');
+            // console.error(shape['cwObject']['objectTypeScriptName'] + ': ' + oName + ' of type:' + evtrsltType + ' >> This object has not been selected, check your config file');
         }
         break;
       case 'role':
-        console.info(shape['cwObject']['objectTypeScriptName'] + ': ' + oName + ' >> This object has been considered has the main role');
+        // console.info(shape['cwObject']['objectTypeScriptName'] + ': ' + oName + ' >> This object has been considered has the main role');
         nbRole++;
         break;
       case 'connectorset':
-        console.warn(shape['cwObject']['properties']['type'] + ': ' + oName + ' >> This object has been ignored');
+        // console.warn(shape['cwObject']['properties']['type'] + ': ' + oName + ' >> This object has been ignored');
         break;
       default:
         nbObjectInError++;
-        console.error(shape['cwObject']['objectTypeScriptName'] + ': ' + oName + ' >> This object has not been selected, check your config file');
+        // console.error(shape['cwObject']['objectTypeScriptName'] + ': ' + oName + ' >> This object has not been selected, check your config file');
     }
   });
 
@@ -142,6 +145,46 @@ function generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, i
 function checkConsistencyOnShapes(shapes) {
   //TBD
 }
+
+// Get parents and children
+// ********** NOT YET FINISHED ??
+// need to decide to use Key or Seq as an ID ... ?
+
+function getParentsAndChildrenFromListOfJoiners(joiners) {
+      // 'sourceKey': sourceKey,
+      // 'targetKey': targetKey,
+      // 'FromSeq': sourceSeq,
+      // 'ToSeq': targetSeq
+  var parents = []
+    ,children = []
+    ,rootNodes = []
+    ,posParents
+    ,posChildren
+    ,HasGrandParent
+  ;
+
+  joiners.forEach(function(joiner) {
+    // PARENTS
+    posParents = arrayObjectIndexOf(parents, joiner.FromSeq, "father");
+    if (posParents < 0) {
+      parents.push({'father': joiner.FromSeq, 'children': joiner.ToSeq});
+    }
+    else {
+      parents[posParents].children = parents[posParents].children + ',' + joiner.ToSeq;
+    }
+
+    // CHILDREN
+    posChildren = arrayObjectIndexOf(children, joiner.ToSeq, "boy");
+    if (posChildren < 0) {
+      children.push({'boy': joiner.ToSeq, 'parents': joiner.FromSeq});
+    }
+    else {
+      children[posChildren].parents = children[posChildren].parents + ',' + joiner.FromSeq;
+    }
+  });
+  return {'parents': parents, 'children': children};
+}
+
 
 // Parse and get only the joiners
 
@@ -182,7 +225,6 @@ function getRootNodesOfGraphFromListOfJoiners(joiners) {
       children[posChildren].parents = children[posChildren].parents + ',' + joiner.sourceKey;
     }
   });
-
 
   parents.forEach(function(parent) {
     posParent = arrayObjectIndexOf(children, parent.father, "boy");

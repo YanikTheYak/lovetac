@@ -20,21 +20,44 @@ function containsObject(obj, list) {
   return false;
 }
 
+function downloadJSON(obj) {
+  var filename, data, d;
+  d = new Date();
+  filename = obj.Name + "_" + d.toISOString().substring(0, 10);
+  data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
+  return ('<a href="data:' + data + '" download="'+filename+'.json">download JSON</a>');
+}
+
+// -------------- //
+// Date.prototype.yyyymmdd = function() {
+//    var yyyy = this.getFullYear().toString();
+//    var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+//    var dd = this.getDate().toString();
+//    return yyyy + (mm[1]?mm:"0"+mm[0]) + (dd[1]?dd:"0"+dd[0]); // padding
+//   };
+
+
+
+
+// function ...
+
 function displayExcelImport() {
   var result = readExcel();
 
   if(result) {
     $("#formated").html("<div class='codeBloc'><pre><code>" + JSON.stringify(result) + "</code></pre></div>");
     // $("#formated").html("<div class='codeBloc'><pre><code>" + JSON.stringify(instructionSheetJSON, null, 2) + "</code></pre></div>");
+
+    $(downloadJSON(result)).appendTo("#downloadtac2");
   } else { $("#formated").html('');}
 
-  $("#tac").html(json2Html(result));
+  $("#tac").html(json2HtmlTable(result));
 }
 
 // ***************  MAIN  ************ Function to 'load JSON' config data
 function main() {
   $.getJSON("./temp/config_tactac_dt_config.json", function(data) {
-    var dic = {}
+    var dic = {}, ISdataJson = {},
       enableD3JS = false;
 
     // $("<h3>Loading config file (object mapping)</h3>").appendTo(".content");
@@ -42,18 +65,28 @@ function main() {
       dic[objectType.ScriptName] = objectType;
     });
 
-    // $(".excel2Tac").hide();
+    $(".dashboard").hide();
+    $(".excel2Tac").hide();
+    $(".evo2tac").hide();
+
     // ********** LOAD from EVOLVE *****************
-    loadContent(data, dic, enableD3JS);
+    // loadContent(data, dic, enableD3JS);
 
     // ********** APIs *****************
-    getAuthenTac();
-    // getByIDInstructionSheet(7);
+    // getAuthenTac();
+
+    getByIDInstructionSheet(null, 36, function(err, data, next){
+      changeISName(err, data, updateByIDInstructionSheet);
+    });
+
+    // NOTE: ecrire une method STEP qui prend le 1er argument (45) et une liste de methodes a appeler dans l'ordre
+    // !er arg, liste meth e tun callback pour apture l error et le resultat final
+
+    // updateByIDInstructionSheet(null, 45, ISdataJson);
+
     // getAllInstructionSheet();
 
-    return dic;
+    return true;
   });
 }
-
-// Create one InstructionSheet
 
