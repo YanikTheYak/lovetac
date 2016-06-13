@@ -25,7 +25,7 @@ function downloadJSON(obj) {
   d = new Date();
   filename = obj.Name + "_" + d.toISOString().substring(0, 10);
   data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
-  return ('<a href="data:' + data + '" download="'+filename+'.json">download JSON</a>');
+  return ('<a class="download" href="data:' + data + '" download="'+filename+'.json">Download (.json)</a>');
 }
 
 // -------------- //
@@ -65,9 +65,9 @@ function main() {
       dic[objectType.ScriptName] = objectType;
     });
 
-    $(".dashboard").hide();
-    $(".excel2Tac").hide();
-    $(".evo2tac").hide();
+
+    // $(".excel2Tac").hide();
+    // $(".evo2tac").hide();
 
     // ********** LOAD from EVOLVE *****************
     // loadContent(data, dic, enableD3JS);

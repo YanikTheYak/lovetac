@@ -107,6 +107,10 @@ textarea {
   left: 25%;
 }
 
+.download{
+  float: right;
+}
+
 .excel2Tac > *, .evo2tac > * {
   width: 50%;
   vertical-align: top;

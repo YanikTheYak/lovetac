@@ -2,18 +2,16 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+
   </head>
 
-  <body onload="main(); displayExcelImport();">
+  <body onload="displayExcelImport();">
 
     <h1 class='header'>Import from Excel</h1>
-
     <div class='excel2Tac'>
       <div>
-
           <img class='logo' src='./images/excel.png'></img>
 
           <textarea name='excel_data'  onkeyup="readExcel();" onchange="displayExcelImport();">Checklist: My checklist title
@@ -75,10 +73,25 @@ Walls free of marks and stains -->
 
     </div>
 
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/createHTML.js"></script>
     <script src="js/createJSON.js"></script>
     <script src="js/excelPlugin.js"></script>
     <script src="js/main.js"></script>
+
+
+    <script type="text/javascript">
+
+    function displayExcelImport() {
+      var result = readExcel();
+      if(result) {
+        $(downloadJSON(result)).appendTo("#downloadtac");
+      } else { $("#formated").html('');}
+
+      $("#tac").html(json2HtmlTable(result));
+    }
+    </script>
+
   </body>
 </html>
 
