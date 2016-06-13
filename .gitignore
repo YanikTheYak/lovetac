@@ -11,5 +11,4 @@
 /log/*
 /tmp
 /public/temp
-*.png
 .DS_Store
