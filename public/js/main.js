@@ -62,7 +62,7 @@ function main() {
     loadContent(data, dic, enableD3JS);
 
     // ********** APIs *****************
-    // getAuthenTac();
+    getAuthenTac();
 
     getByIDInstructionSheet(null, 36, function(err, data, next){
       changeISName(err, data, updateByIDInstructionSheet);
