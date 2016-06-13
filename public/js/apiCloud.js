@@ -1,6 +1,7 @@
 // var domain = 'risualdev-tactac-api';
 var domain = 'tactacapi';
 
+
 // Get authentication to Cloud API
 
 function getAuthenTac() {
