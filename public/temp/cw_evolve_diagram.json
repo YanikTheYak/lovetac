@@ -1,0 +1,1437 @@
+{
+  "status": "Ok",
+  "result": {
+    "associations": {
+    },
+    "iProperties": {
+    },
+    "iObjectTypeScriptName": "",
+    "accessRights": {
+      "CanUpdate": true,
+      "CanDelete": true
+    },
+    "iObjectAccessRights": {
+    },
+    "diagram": {
+      "size": {
+        "Width": 1003.0032,
+        "Height": 193.99992
+      },
+      "shapes": [
+        {
+          "objectId": 920924582,
+          "objectTypeId": 9097,
+          "nextZSequence": 0,
+          "vcflag": 0,
+          "customStyleId": 0,
+          "freeShapesKey": 9097,
+          "paletteEntryKey": "EVENTRESULT|0",
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 920924582,
+            "name": "",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "",
+            "objectTypeScriptName": "eventresult",
+            "GenerationDate": "2015-08-03T14:22:39.7953686+02:00",
+            "properties": {
+              "name": "Start",
+              "internalexternal_abbreviation": "",
+              "internalexternal_id": 100,
+              "internalexternal": "External Event"
+            },
+            "iName": null
+          },
+          "X": -0.0016000000000033765,
+          "Y": 67.00008,
+          "W": 121.0032,
+          "H": 60.99984,
+          "Sequence": 976195,
+          "ClusterSequence": 0,
+          "PictureUuid": null,
+          "VersionControl": null,
+          "customStyle": null,
+          "IsNew": true,
+          "name": "",
+          "isSelectedForEditor": false
+        },
+        {
+          "objectId": 1662585331,
+          "objectTypeId": 8953,
+          "nextZSequence": 0,
+          "vcflag": 0,
+          "customStyleId": 0,
+          "freeShapesKey": 8953,
+          "paletteEntryKey": "PROCESS|0",
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 1662585331,
+            "name": "",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "",
+            "objectTypeScriptName": "process",
+            "GenerationDate": "2015-08-03T14:22:54.8884951+02:00",
+            "properties": {
+              "name": "step1",
+              "type_abbreviation": "",
+              "description": "This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. ",
+              "type_id": 0,
+              "type": "__|UndefinedValue|__"
+            },
+            "iName": null
+          },
+          "X": 156.9984,
+          "Y": 67.00008,
+          "W": 121.0032,
+          "H": 60.99984,
+          "Sequence": 797837,
+          "ClusterSequence": 0,
+          "PictureUuid": null,
+          "VersionControl": null,
+          "customStyle": null,
+          "IsNew": true,
+          "name": "",
+          "isSelectedForEditor": false
+        },
+        {
+          "objectId": 1774589728,
+          "objectTypeId": 8953,
+          "nextZSequence": 0,
+          "vcflag": 0,
+          "customStyleId": 0,
+          "freeShapesKey": 8953,
+          "paletteEntryKey": "PROCESS|0",
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 1774589728,
+            "name": "",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "",
+            "objectTypeScriptName": "process",
+            "GenerationDate": "2015-08-03T14:23:26.9174607+02:00",
+            "properties": {
+              "name": "Step2",
+              "type_abbreviation": "",
+              "description": "This is a description for step 2",
+              "type_id": 0,
+              "type": "__|UndefinedValue|__"
+            },
+            "iName": null
+          },
+          "X": 313.9984,
+          "Y": 67.00008,
+          "W": 121.0032,
+          "H": 60.99984,
+          "Sequence": 257117,
+          "ClusterSequence": 0,
+          "PictureUuid": null,
+          "VersionControl": null,
+          "customStyle": null,
+          "IsNew": true,
+          "name": "",
+          "isSelectedForEditor": false
+        },
+        {
+          "objectId": 1686590570,
+          "objectTypeId": 8953,
+          "nextZSequence": 0,
+          "vcflag": 0,
+          "customStyleId": 0,
+          "freeShapesKey": 8953,
+          "paletteEntryKey": "PROCESS|0",
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 1686590570,
+            "name": "",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "",
+            "objectTypeScriptName": "process",
+            "GenerationDate": "2015-08-03T14:23:27.9590649+02:00",
+            "properties": {
+              "name": "step3",
+              "type_abbreviation": "",
+              "description": "This is a description for step 3",
+              "type_id": 0,
+              "type": "__|UndefinedValue|__"
+            },
+            "iName": null
+          },
+          "X": 470.9984,
+          "Y": 67.00008,
+          "W": 121.0032,
+          "H": 60.99984,
+          "Sequence": 923538,
+          "ClusterSequence": 0,
+          "PictureUuid": null,
+          "VersionControl": null,
+          "customStyle": null,
+          "IsNew": true,
+          "name": "",
+          "isSelectedForEditor": false
+        },
+        {
+          "objectId": 564361185,
+          "objectTypeId": 7107,
+          "nextZSequence": 0,
+          "vcflag": 0,
+          "customStyleId": 0,
+          "freeShapesKey": 7107,
+          "paletteEntryKey": "CONNECTORSET|73",
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 564361185,
+            "name": "",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "",
+            "objectTypeScriptName": "connectorset",
+            "GenerationDate": "2015-08-03T14:23:37.1021912+02:00",
+            "properties": {
+              "name": "",
+              "type_abbreviation": "",
+              "type_id": 73,
+              "type": "Output OR"
+            },
+            "iName": null
+          },
+          "X": 628.00008,
+          "Y": 67.00008,
+          "W": 60.99984,
+          "H": 60.99984,
+          "Sequence": 464616,
+          "ClusterSequence": 0,
+          "PictureUuid": null,
+          "VersionControl": null,
+          "customStyle": null,
+          "IsNew": true,
+          "name": "",
+          "isSelectedForEditor": false
+        },
+        {
+          "objectId": 1367568217,
+          "objectTypeId": 8953,
+          "nextZSequence": 0,
+          "vcflag": 0,
+          "customStyleId": 0,
+          "freeShapesKey": 8953,
+          "paletteEntryKey": "PROCESS|0",
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 1367568217,
+            "name": "",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "",
+            "objectTypeScriptName": "process",
+            "GenerationDate": "2015-08-03T14:23:39.894932+02:00",
+            "properties": {
+              "name": "Step4",
+              "type_abbreviation": "",
+              "description": "This is a description for step 4",
+              "type_id": 0,
+              "type": "__|UndefinedValue|__"
+            },
+            "iName": null
+          },
+          "X": 724.9984,
+          "Y": 7.999999999697138e-05,
+          "W": 121.0032,
+          "H": 60.99984,
+          "Sequence": 260148,
+          "ClusterSequence": 0,
+          "PictureUuid": null,
+          "VersionControl": null,
+          "customStyle": null,
+          "IsNew": true,
+          "name": "",
+          "isSelectedForEditor": true,
+          "isSelectedForEditorColor": "#d5e229"
+        },
+        {
+          "objectId": 1973037216,
+          "objectTypeId": 8953,
+          "nextZSequence": 0,
+          "vcflag": 0,
+          "customStyleId": 0,
+          "freeShapesKey": 8953,
+          "paletteEntryKey": "PROCESS|0",
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 1973037216,
+            "name": "",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "",
+            "objectTypeScriptName": "process",
+            "GenerationDate": "2015-08-03T14:23:43.640761+02:00",
+            "properties": {
+              "name": "Step5",
+              "type_abbreviation": "",
+              "description": "This is a description for step 5",
+              "type_id": 0,
+              "type": "__|UndefinedValue|__"
+            },
+            "iName": null
+          },
+          "X": 724.9984,
+          "Y": 133.00008,
+          "W": 121.0032,
+          "H": 60.99984,
+          "Sequence": 579943,
+          "ClusterSequence": 0,
+          "PictureUuid": null,
+          "VersionControl": null,
+          "customStyle": null,
+          "IsNew": true,
+          "name": "",
+          "isSelectedForEditor": false
+        },
+        {
+          "objectId": 455950878,
+          "objectTypeId": 9097,
+          "nextZSequence": 0,
+          "vcflag": 0,
+          "customStyleId": 0,
+          "freeShapesKey": 9097,
+          "paletteEntryKey": "EVENTRESULT|1",
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 455950878,
+            "name": "",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "",
+            "objectTypeScriptName": "eventresult",
+            "GenerationDate": "2015-08-03T14:23:55.7662602+02:00",
+            "properties": {
+              "name": "End",
+              "internalexternal_abbreviation": "",
+              "internalexternal_id": 101,
+              "internalexternal": "Internal Event/Result"
+            },
+            "iName": null
+          },
+          "X": 881.9984,
+          "Y": 67.00008,
+          "W": 121.0032,
+          "H": 60.99984,
+          "Sequence": 404117,
+          "ClusterSequence": 0,
+          "PictureUuid": null,
+          "VersionControl": null,
+          "customStyle": null,
+          "IsNew": true,
+          "name": "",
+          "isSelectedForEditor": false,
+          "isSelectedForEditorColor": "#d5e229"
+        }
+      ],
+      "paletteEntries": {
+        "PROCESS|0": {
+          "Regions": [
+            {
+              "Anchor": 0,
+              "RegionSequence": 0,
+              "RegionType": 3,
+              "RegionTypeString": "LocalPropertyActualValue",
+              "DisplayText": true,
+              "HorizontalJustification": "TopJustify",
+              "VerticalJustification": "LeftJustify",
+              "VerticalText": false,
+              "AdjustSizeToText": false,
+              "VerticalTextDirection": "",
+              "ListAssociatedObjects": true,
+              "Clickable": false,
+              "X": 0,
+              "Y": 100,
+              "W": 100,
+              "H": 6,
+              "LeftType": "%",
+              "TopType": "%",
+              "WidthType": "%",
+              "HeightType": "mm",
+              "BandingRows": [
+                {
+                  "PictureUuid": "",
+                  "Symbol": 4,
+                  "Style": {
+                    "TextColor": "#010000",
+                    "FillColor": "#778899",
+                    "FillPattern": "Transparent",
+                    "StrokeColor": "#010000",
+                    "StrokePattern": "-1",
+                    "LineWidth": 0,
+                    "HasGradient": false,
+                    "GradientDir": 0,
+                    "GradientFromFill": null,
+                    "GradientToFill": null,
+                    "HasShadow": false,
+                    "GradientSize": 0,
+                    "Font": {
+                      "Size": 10,
+                      "Font": " 10pt 'Arial'"
+                    },
+                    "HasOpacity": false,
+                    "OpacityPercentage": 100
+                  },
+                  "DisplayOperator": 0,
+                  "Value": "0",
+                  "PropertyInfo": null,
+                  "MultiplePropertyAssociationsInfo": null
+                }
+              ],
+              "RuleCategoryId": 0,
+              "SourcePropertyTypeScriptName": "alternatename",
+              "ReferencePropertyTypeScriptName": "",
+              "IsExplosionRegion": false,
+              "PropertyInformation": null,
+              "AssociationMultiplePropertyNames": null,
+              "MultiplePropertyNames": null,
+              "LiteralTextValue": null
+            }
+          ],
+          "DisplayText": true,
+          "HorizontalJustification": "TopJustify",
+          "VerticalJustification": "LeftJustify",
+          "VerticalText": false,
+          "VerticalTextDirection": "",
+          "Width": 32,
+          "Height": 16,
+          "Symbole": 4,
+          "Style": {
+            "TextColor": "#000000",
+            "FillColor": "#FFFFFF",
+            "FillPattern": "Solid",
+            "StrokeColor": "#FFA500",
+            "StrokePattern": "Solid",
+            "LineWidth": 0,
+            "HasGradient": true,
+            "GradientDir": 2,
+            "GradientFromFill": "#FFFF80",
+            "GradientToFill": "#FFD700",
+            "HasShadow": false,
+            "GradientSize": 49,
+            "Font": {
+              "Size": 10,
+              "Font": " 10pt 'Arial'"
+            },
+            "HasOpacity": false,
+            "OpacityPercentage": 50
+          },
+          "JoinerToEndSymbol": 0,
+          "JoinerFromEndSymbol": 0,
+          "PaletteObjectTypeScriptName": "PROCESS",
+          "PaletteObjectTypeCategory": 0,
+          "PaletteEntryKey": "PROCESS|0",
+          "PropertiesToExport": [
+            "NAME",
+            "ALTERNATENAME"
+          ],
+          "AssociationsToExport": [
+
+          ],
+          "HasExplosionRegion": false,
+          "PictureUuid": null,
+          "PaletteEntryDisplayName": "Process"
+        },
+        "PROCESS|154": {
+          "Regions": [
+
+          ],
+          "DisplayText": true,
+          "HorizontalJustification": "TopJustify",
+          "VerticalJustification": "LeftJustify",
+          "VerticalText": false,
+          "VerticalTextDirection": "",
+          "Width": 32,
+          "Height": 16,
+          "Symbole": 4,
+          "Style": {
+            "TextColor": "#010000",
+            "FillColor": "#FFFF80",
+            "FillPattern": "Solid",
+            "StrokeColor": "#010000",
+            "StrokePattern": "Solid",
+            "LineWidth": 0,
+            "HasGradient": false,
+            "GradientDir": 0,
+            "GradientFromFill": null,
+            "GradientToFill": null,
+            "HasShadow": false,
+            "GradientSize": 0,
+            "Font": {
+              "Size": 10,
+              "Font": " 10pt 'Arial'"
+            },
+            "HasOpacity": false,
+            "OpacityPercentage": 1
+          },
+          "JoinerToEndSymbol": 0,
+          "JoinerFromEndSymbol": 0,
+          "PaletteObjectTypeScriptName": "PROCESS",
+          "PaletteObjectTypeCategory": 154,
+          "PaletteEntryKey": "PROCESS|154",
+          "PropertiesToExport": [
+            "NAME"
+          ],
+          "AssociationsToExport": [
+
+          ],
+          "HasExplosionRegion": false,
+          "PictureUuid": null,
+          "PaletteEntryDisplayName": "p type 1"
+        },
+        "ORGANIZATION|0": {
+          "Regions": [
+
+          ],
+          "DisplayText": true,
+          "HorizontalJustification": "TopJustify",
+          "VerticalJustification": "LeftJustify",
+          "VerticalText": false,
+          "VerticalTextDirection": "",
+          "Width": 32,
+          "Height": 16,
+          "Symbole": 4,
+          "Style": {
+            "TextColor": "#000000",
+            "FillColor": "#FFFFFF",
+            "FillPattern": "Solid",
+            "StrokeColor": "#008080",
+            "StrokePattern": "Solid",
+            "LineWidth": 3,
+            "HasGradient": true,
+            "GradientDir": 2,
+            "GradientFromFill": "#AFEEEE",
+            "GradientToFill": "#87CEFA",
+            "HasShadow": false,
+            "GradientSize": 64,
+            "Font": {
+              "Size": 10,
+              "Font": " 10pt 'Arial'"
+            },
+            "HasOpacity": false,
+            "OpacityPercentage": 50
+          },
+          "JoinerToEndSymbol": 0,
+          "JoinerFromEndSymbol": 0,
+          "PaletteObjectTypeScriptName": "ORGANIZATION",
+          "PaletteObjectTypeCategory": 0,
+          "PaletteEntryKey": "ORGANIZATION|0",
+          "PropertiesToExport": [
+            "NAME"
+          ],
+          "AssociationsToExport": [
+
+          ],
+          "HasExplosionRegion": false,
+          "PictureUuid": null,
+          "PaletteEntryDisplayName": "Organization"
+        },
+        "EVENTRESULT|0": {
+          "Regions": [
+
+          ],
+          "DisplayText": true,
+          "HorizontalJustification": "TopJustify",
+          "VerticalJustification": "LeftJustify",
+          "VerticalText": false,
+          "VerticalTextDirection": "",
+          "Width": 32,
+          "Height": 16,
+          "Symbole": 2,
+          "Style": {
+            "TextColor": "#000000",
+            "FillColor": "#90EE90",
+            "FillPattern": "Solid",
+            "StrokeColor": "#000000",
+            "StrokePattern": "Solid",
+            "LineWidth": 0,
+            "HasGradient": false,
+            "GradientDir": 0,
+            "GradientFromFill": null,
+            "GradientToFill": null,
+            "HasShadow": false,
+            "GradientSize": 0,
+            "Font": {
+              "Size": 10,
+              "Font": " 10pt 'Arial'"
+            },
+            "HasOpacity": false,
+            "OpacityPercentage": 50
+          },
+          "JoinerToEndSymbol": 0,
+          "JoinerFromEndSymbol": 0,
+          "PaletteObjectTypeScriptName": "EVENTRESULT",
+          "PaletteObjectTypeCategory": 0,
+          "PaletteEntryKey": "EVENTRESULT|0",
+          "PropertiesToExport": [
+            "NAME"
+          ],
+          "AssociationsToExport": [
+
+          ],
+          "HasExplosionRegion": false,
+          "PictureUuid": null,
+          "PaletteEntryDisplayName": "External Event"
+        },
+        "EVENTRESULT|1": {
+          "Regions": [
+
+          ],
+          "DisplayText": true,
+          "HorizontalJustification": "TopJustify",
+          "VerticalJustification": "LeftJustify",
+          "VerticalText": false,
+          "VerticalTextDirection": "",
+          "Width": 32,
+          "Height": 16,
+          "Symbole": 2,
+          "Style": {
+            "TextColor": "#000000",
+            "FillColor": "#FFB093",
+            "FillPattern": "Solid",
+            "StrokeColor": "#000000",
+            "StrokePattern": "Solid",
+            "LineWidth": 0,
+            "HasGradient": false,
+            "GradientDir": 0,
+            "GradientFromFill": null,
+            "GradientToFill": null,
+            "HasShadow": false,
+            "GradientSize": 0,
+            "Font": {
+              "Size": 10,
+              "Font": " 10pt 'Arial'"
+            },
+            "HasOpacity": false,
+            "OpacityPercentage": 50
+          },
+          "JoinerToEndSymbol": 0,
+          "JoinerFromEndSymbol": 0,
+          "PaletteObjectTypeScriptName": "EVENTRESULT",
+          "PaletteObjectTypeCategory": 1,
+          "PaletteEntryKey": "EVENTRESULT|1",
+          "PropertiesToExport": [
+            "NAME"
+          ],
+          "AssociationsToExport": [
+
+          ],
+          "HasExplosionRegion": false,
+          "PictureUuid": null,
+          "PaletteEntryDisplayName": "External Result"
+        },
+        "CONNECTOR|0": {
+          "Regions": [
+
+          ],
+          "DisplayText": true,
+          "HorizontalJustification": "TopJustify",
+          "VerticalJustification": "LeftJustify",
+          "VerticalText": false,
+          "VerticalTextDirection": "",
+          "Width": 32,
+          "Height": 16,
+          "Symbole": 4,
+          "Style": {
+            "TextColor": "#010000",
+            "FillColor": "#FFFF80",
+            "FillPattern": "Solid",
+            "StrokeColor": "#010000",
+            "StrokePattern": "Solid",
+            "LineWidth": 0,
+            "HasGradient": false,
+            "GradientDir": 0,
+            "GradientFromFill": null,
+            "GradientToFill": null,
+            "HasShadow": false,
+            "GradientSize": 0,
+            "Font": {
+              "Size": 10,
+              "Font": " 10pt 'Arial'"
+            },
+            "HasOpacity": false,
+            "OpacityPercentage": 1
+          },
+          "JoinerToEndSymbol": 2,
+          "JoinerFromEndSymbol": 0,
+          "PaletteObjectTypeScriptName": "CONNECTOR",
+          "PaletteObjectTypeCategory": 0,
+          "PaletteEntryKey": "CONNECTOR|0",
+          "PropertiesToExport": [
+            "CONDITION"
+          ],
+          "AssociationsToExport": [
+
+          ],
+          "HasExplosionRegion": false,
+          "PictureUuid": null,
+          "PaletteEntryDisplayName": "Connector"
+        },
+        "CONNECTORSET|73": {
+          "Regions": [
+
+          ],
+          "DisplayText": true,
+          "HorizontalJustification": "TopJustify",
+          "VerticalJustification": "LeftJustify",
+          "VerticalText": false,
+          "VerticalTextDirection": "",
+          "Width": 16,
+          "Height": 16,
+          "Symbole": 207,
+          "Style": {
+            "TextColor": "#000000",
+            "FillColor": "#FFFFFF",
+            "FillPattern": "Solid",
+            "StrokeColor": "#000000",
+            "StrokePattern": "Solid",
+            "LineWidth": 0,
+            "HasGradient": false,
+            "GradientDir": 0,
+            "GradientFromFill": null,
+            "GradientToFill": null,
+            "HasShadow": false,
+            "GradientSize": 0,
+            "Font": {
+              "Size": 10,
+              "Font": " 10pt 'Arial'"
+            },
+            "HasOpacity": false,
+            "OpacityPercentage": 50
+          },
+          "JoinerToEndSymbol": 0,
+          "JoinerFromEndSymbol": 0,
+          "PaletteObjectTypeScriptName": "CONNECTORSET",
+          "PaletteObjectTypeCategory": 73,
+          "PaletteEntryKey": "CONNECTORSET|73",
+          "PropertiesToExport": [
+            "NAME"
+          ],
+          "AssociationsToExport": [
+
+          ],
+          "HasExplosionRegion": false,
+          "PictureUuid": null,
+          "PaletteEntryDisplayName": "Output OR"
+        },
+        "CONNECTORSET|8": {
+          "Regions": [
+
+          ],
+          "DisplayText": true,
+          "HorizontalJustification": "TopJustify",
+          "VerticalJustification": "LeftJustify",
+          "VerticalText": false,
+          "VerticalTextDirection": "",
+          "Width": 16,
+          "Height": 16,
+          "Symbole": 208,
+          "Style": {
+            "TextColor": "#010000",
+            "FillColor": "#FFFF80",
+            "FillPattern": "Solid",
+            "StrokeColor": "#010000",
+            "StrokePattern": "Solid",
+            "LineWidth": 0,
+            "HasGradient": false,
+            "GradientDir": 0,
+            "GradientFromFill": null,
+            "GradientToFill": null,
+            "HasShadow": false,
+            "GradientSize": 0,
+            "Font": {
+              "Size": 10,
+              "Font": " 10pt 'Arial'"
+            },
+            "HasOpacity": false,
+            "OpacityPercentage": 1
+          },
+          "JoinerToEndSymbol": 0,
+          "JoinerFromEndSymbol": 0,
+          "PaletteObjectTypeScriptName": "CONNECTORSET",
+          "PaletteObjectTypeCategory": 8,
+          "PaletteEntryKey": "CONNECTORSET|8",
+          "PropertiesToExport": [
+            "NAME"
+          ],
+          "AssociationsToExport": [
+
+          ],
+          "HasExplosionRegion": false,
+          "PictureUuid": null,
+          "PaletteEntryDisplayName": "Output AND"
+        }
+      },
+      "joiners": [
+        {
+          "Sequence": 1633291409,
+          "paletteEntryKey": null,
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 2123747093,
+            "name": "CONNECTOR 2123747093",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "CONNECTOR 2123747093",
+            "objectTypeScriptName": "connector",
+            "GenerationDate": "2015-08-03T14:22:54.8894969+02:00",
+            "properties": {
+            },
+            "iName": null
+          },
+          "nameZone": {
+            "X": 0,
+            "Y": 0,
+            "W": 0,
+            "H": 0
+          },
+          "points": [
+            {
+              "X": 121.2,
+              "Y": 97.5
+            },
+            {
+              "X": 121.2,
+              "Y": 97.5
+            },
+            {
+              "X": 146.96,
+              "Y": 97.5
+            },
+            {
+              "X": 146.96,
+              "Y": 97.5
+            },
+            {
+              "X": 156.96,
+              "Y": 97.5
+            }
+          ],
+          "FromSeq": 976195,
+          "ToSeq": 797837,
+          "FromSide": 0,
+          "ToSide": 0
+        },
+        {
+          "Sequence": 1567530304,
+          "paletteEntryKey": null,
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 1280633107,
+            "name": "CONNECTOR 1280633107",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "CONNECTOR 1280633107",
+            "objectTypeScriptName": "connector",
+            "GenerationDate": "2015-08-03T14:23:26.918457+02:00",
+            "properties": {
+            },
+            "iName": null
+          },
+          "nameZone": {
+            "X": 0,
+            "Y": 0,
+            "W": 0,
+            "H": 0
+          },
+          "points": [
+            {
+              "X": 278.2,
+              "Y": 97.5
+            },
+            {
+              "X": 278.2,
+              "Y": 97.5
+            },
+            {
+              "X": 303.96,
+              "Y": 97.5
+            },
+            {
+              "X": 303.96,
+              "Y": 97.5
+            },
+            {
+              "X": 313.96,
+              "Y": 97.5
+            }
+          ],
+          "FromSeq": 797837,
+          "ToSeq": 257117,
+          "FromSide": 0,
+          "ToSide": 0
+        },
+        {
+          "Sequence": 2013730405,
+          "paletteEntryKey": null,
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 1780568636,
+            "name": "CONNECTOR 1780568636",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "CONNECTOR 1780568636",
+            "objectTypeScriptName": "connector",
+            "GenerationDate": "2015-08-03T14:23:27.9600613+02:00",
+            "properties": {
+            },
+            "iName": null
+          },
+          "nameZone": {
+            "X": 0,
+            "Y": 0,
+            "W": 0,
+            "H": 0
+          },
+          "points": [
+            {
+              "X": 435.2,
+              "Y": 97.5
+            },
+            {
+              "X": 435.2,
+              "Y": 97.5
+            },
+            {
+              "X": 460.96,
+              "Y": 97.5
+            },
+            {
+              "X": 460.96,
+              "Y": 97.5
+            },
+            {
+              "X": 470.96,
+              "Y": 97.5
+            }
+          ],
+          "FromSeq": 257117,
+          "ToSeq": 923538,
+          "FromSide": 0,
+          "ToSide": 0
+        },
+        {
+          "Sequence": 2104901849,
+          "paletteEntryKey": null,
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 922693145,
+            "name": "CONNECTOR 922693145",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "CONNECTOR 922693145",
+            "objectTypeScriptName": "connector",
+            "GenerationDate": "2015-08-03T14:23:37.1041904+02:00",
+            "properties": {
+            },
+            "iName": null
+          },
+          "nameZone": {
+            "X": 0,
+            "Y": 0,
+            "W": 0,
+            "H": 0
+          },
+          "points": [
+            {
+              "X": 592.02,
+              "Y": 97.5
+            },
+            {
+              "X": 592.02,
+              "Y": 97.5
+            },
+            {
+              "X": 617.77,
+              "Y": 97.5
+            },
+            {
+              "X": 617.77,
+              "Y": 97.5
+            },
+            {
+              "X": 627.77,
+              "Y": 97.5
+            }
+          ],
+          "FromSeq": 923538,
+          "ToSeq": 464616,
+          "FromSide": 0,
+          "ToSide": 0
+        },
+        {
+          "Sequence": 1598868125,
+          "paletteEntryKey": null,
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 287095437,
+            "name": "CONNECTOR 287095437",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "CONNECTOR 287095437",
+            "objectTypeScriptName": "connector",
+            "GenerationDate": "2015-08-03T14:23:39.894932+02:00",
+            "properties": {
+            },
+            "iName": null
+          },
+          "nameZone": {
+            "X": 0,
+            "Y": 0,
+            "W": 0,
+            "H": 0
+          },
+          "points": [
+            {
+              "X": 659,
+              "Y": 66.75
+            },
+            {
+              "X": 659,
+              "Y": 49.129999999999995
+            },
+            {
+              "X": 659,
+              "Y": 30.5
+            },
+            {
+              "X": 659,
+              "Y": 30.5
+            },
+            {
+              "X": 659,
+              "Y": 30.5
+            },
+            {
+              "X": 714.84,
+              "Y": 30.5
+            },
+            {
+              "X": 714.84,
+              "Y": 30.5
+            },
+            {
+              "X": 724.84,
+              "Y": 30.5
+            }
+          ],
+          "FromSeq": 464616,
+          "ToSeq": 260148,
+          "FromSide": 0,
+          "ToSide": 0
+        },
+        {
+          "Sequence": 827083676,
+          "paletteEntryKey": null,
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 1568154514,
+            "name": "CONNECTOR 1568154514",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "CONNECTOR 1568154514",
+            "objectTypeScriptName": "connector",
+            "GenerationDate": "2015-08-03T14:23:43.6417697+02:00",
+            "properties": {
+            },
+            "iName": null
+          },
+          "nameZone": {
+            "X": 0,
+            "Y": 0,
+            "W": 0,
+            "H": 0
+          },
+          "points": [
+            {
+              "X": 659,
+              "Y": 128.18099999999998
+            },
+            {
+              "X": 659,
+              "Y": 145.417
+            },
+            {
+              "X": 659,
+              "Y": 163.5
+            },
+            {
+              "X": 659,
+              "Y": 163.5
+            },
+            {
+              "X": 659,
+              "Y": 163.5
+            },
+            {
+              "X": 714.84,
+              "Y": 163.5
+            },
+            {
+              "X": 714.84,
+              "Y": 163.5
+            },
+            {
+              "X": 724.84,
+              "Y": 163.5
+            }
+          ],
+          "FromSeq": 464616,
+          "ToSeq": 579943,
+          "FromSide": 0,
+          "ToSide": 0
+        },
+        {
+          "Sequence": 1254204262,
+          "paletteEntryKey": null,
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 201270408,
+            "name": "CONNECTOR 201270408",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "CONNECTOR 201270408",
+            "objectTypeScriptName": "connector",
+            "GenerationDate": "2015-08-03T14:24:00.7066221+02:00",
+            "properties": {
+            },
+            "iName": null
+          },
+          "nameZone": {
+            "X": 0,
+            "Y": 0,
+            "W": 0,
+            "H": 0
+          },
+          "points": [
+            {
+              "X": 786,
+              "Y": 61.25
+            },
+            {
+              "X": 786,
+              "Y": 78.87
+            },
+            {
+              "X": 786,
+              "Y": 97.5
+            },
+            {
+              "X": 786,
+              "Y": 97.5
+            },
+            {
+              "X": 786,
+              "Y": 97.5
+            },
+            {
+              "X": 871.99,
+              "Y": 97.5
+            },
+            {
+              "X": 871.99,
+              "Y": 97.5
+            },
+            {
+              "X": 881.99,
+              "Y": 97.5
+            }
+          ],
+          "FromSeq": 260148,
+          "ToSeq": 404117,
+          "FromSide": 0,
+          "ToSide": 0
+        },
+        {
+          "Sequence": 301861694,
+          "paletteEntryKey": null,
+          "cwObject": {
+            "associations": {
+            },
+            "iProperties": {
+            },
+            "iObjectTypeScriptName": "",
+            "accessRights": {
+              "CanUpdate": true,
+              "CanDelete": true
+            },
+            "iObjectAccessRights": {
+            },
+            "object_id": 1301037901,
+            "name": "CONNECTOR 1301037901",
+            "layoutName": null,
+            "nodeID": null,
+            "label": "CONNECTOR 1301037901",
+            "objectTypeScriptName": "connector",
+            "GenerationDate": "2015-08-03T14:23:55.7672606+02:00",
+            "properties": {
+            },
+            "iName": null
+          },
+          "nameZone": {
+            "X": 0,
+            "Y": 0,
+            "W": 0,
+            "H": 0
+          },
+          "points": [
+            {
+              "X": 846.39,
+              "Y": 163.5
+            },
+            {
+              "X": 890.71,
+              "Y": 163.5
+            },
+            {
+              "X": 943,
+              "Y": 163.5
+            },
+            {
+              "X": 943,
+              "Y": 163.5
+            },
+            {
+              "X": 943,
+              "Y": 163.5
+            },
+            {
+              "X": 943,
+              "Y": 138.18099999999998
+            },
+            {
+              "X": 943,
+              "Y": 138.18099999999998
+            },
+            {
+              "X": 943,
+              "Y": 128.18099999999998
+            }
+          ],
+          "FromSeq": 579943,
+          "ToSeq": 404117,
+          "FromSide": 0,
+          "ToSide": 0
+        }
+      ],
+      "symbols": {
+      },
+      "ClustersBySequence": {
+      }
+    },
+    "Template": {
+      "ClusterPaletteEntryKey": "ORGANIZATION|0",
+      "RootPaletteEntriesKeys": [
+        "EVENTRESULT|0"
+      ],
+      "Group": {
+        "TemplatesId": [
+          19,
+          26
+        ]
+      },
+      "PaletteEntriesNextShapes": {
+        "PROCESS|0": [
+          "PROCESS|0",
+          "CONNECTORSET|73",
+          "EVENTRESULT|1"
+        ],
+        "CONNECTORSET|73": [
+          "PROCESS|0",
+          "EVENTRESULT|1"
+        ],
+        "EVENTRESULT|0": [
+          "PROCESS|0"
+        ]
+      },
+      "Id": 19,
+      "Title": "Process Flow (Generic)"
+    },
+    "object_id": 27,
+    "name": "PF5_EmptyDiagram",
+    "layoutName": null,
+    "nodeID": null,
+    "label": "PF5_EmptyDiagram",
+    "objectTypeScriptName": "diagram",
+    "GenerationDate": "2015-08-03T14:12:46.4395071+02:00",
+    "properties": {
+      "id": 27,
+      "name": "PF5_EmptyDiagram",
+      "uniqueidentifier": "11e99a0a219f11e5826534e6d7401a22",
+      "type_abbreviation": "PF",
+      "type_id": 164,
+      "type": "PF",
+      "title": "EmptyDiagram",
+      "exportflag": 0,
+      "diagrammer_abbreviation": "",
+      "diagrammer_id": 54,
+      "diagrammer": "Generic",
+      "whoowns": 1,
+      "whenupdated": "2015-07-31T18:21:23",
+      "whoupdated": 1,
+      "validated": false,
+      "datevalidated": "1899-12-30T00:00:00",
+      "whocreated": 1,
+      "whencreated": "2015-07-03T18:18:00",
+      "tablenumber": 0,
+      "objectid": 0
+    },
+    "iName": null
+  }
+}

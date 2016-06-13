@@ -10,5 +10,4 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp
-/public/temp
 .DS_Store

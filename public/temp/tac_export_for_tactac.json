@@ -1,0 +1,137 @@
+{
+  "Name": "PF5_EmptyDiagram",
+  "Description": "This is the description of this process from Evolve to be used Live in the field thanks to Casewise Tactac.",
+  "ImageURL": null,
+  "Status": null,
+  "SLA": "1 Day",
+  "MainContactID": 0,
+  "Version": 0,
+  "ImageFile": null,
+  "AllSteps": null,
+  "Pages": [
+    {
+      "Name": "Group name",
+      "Position": 0,
+      "Steps": [
+        {
+          "Name": "Start",
+          "ImageURL": null,
+          "Image2URL": null,
+          "Image3URL": null,
+          "ProofRequired": false,
+          "ProofType": 0,
+          "StepPosition": 0,
+          "AnswerSet": 0,
+          "ImageGroupID": null,
+          "Position": 0,
+          "Image1Data": null,
+          "StepAnswers": [
+
+
+          ]
+        },
+        {
+          "Name": "step1",
+          "Description": "This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. This is a description for step 1. ",
+          "ImageURL": null,
+          "Image2URL": null,
+          "Image3URL": null,
+          "ProofRequired": false,
+          "ProofType": 0,
+          "StepPosition": 1,
+          "AnswerSet": 0,
+          "ImageGroupID": null,
+          "Position": 0,
+          "Image1Data": null,
+          "StepAnswers": [
+
+          ]
+        },
+        {
+          "Name": "Step2",
+          "Description": "This is a description for step 2",
+          "ImageURL": null,
+          "Image2URL": null,
+          "Image3URL": null,
+          "ProofRequired": false,
+          "ProofType": 0,
+          "StepPosition": 2,
+          "AnswerSet": 0,
+          "ImageGroupID": null,
+          "Position": 0,
+          "Image1Data": null,
+          "StepAnswers": [
+
+          ]
+        },
+        {
+          "Name": "step3",
+          "Description": "This is a description for step 3",
+          "ImageURL": null,
+          "Image2URL": null,
+          "Image3URL": null,
+          "ProofRequired": false,
+          "ProofType": 0,
+          "StepPosition": 3,
+          "AnswerSet": 0,
+          "ImageGroupID": null,
+          "Position": 0,
+          "Image1Data": null,
+          "StepAnswers": [
+
+          ]
+        },
+        {
+          "Name": "Step4",
+          "Description": "This is a description for step 4",
+          "ImageURL": null,
+          "Image2URL": null,
+          "Image3URL": null,
+          "ProofRequired": false,
+          "ProofType": 0,
+          "StepPosition": 4,
+          "AnswerSet": 0,
+          "ImageGroupID": null,
+          "Position": 0,
+          "Image1Data": null,
+          "StepAnswers": [
+
+          ]
+        },
+        {
+          "Name": "Step5",
+          "Description": "This is a description for step 5",
+          "ImageURL": null,
+          "Image2URL": null,
+          "Image3URL": null,
+          "ProofRequired": false,
+          "ProofType": 0,
+          "StepPosition": 5,
+          "AnswerSet": 0,
+          "ImageGroupID": null,
+          "Position": 0,
+          "Image1Data": null,
+          "StepAnswers": [
+
+          ]
+        },
+        {
+          "Name": "End",
+          "ImageURL": null,
+          "Image2URL": null,
+          "Image3URL": null,
+          "ProofRequired": false,
+          "ProofType": 0,
+          "StepPosition": 6,
+          "AnswerSet": 0,
+          "ImageGroupID": null,
+          "Position": 0,
+          "Image1Data": null,
+          "StepAnswers": [
+
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "Name": "My configuration name",
+  "DiagramTemplateID": null,
+  "ObjectTypes": [
+    {
+      "TactacObject": "eventresult",
+      "ScriptName": "eventresult",
+      "Filter": "2,4",
+      "ObjectsPerDiagram": [
+        {
+          "minimum": 1,
+          "maximum": 2
+        }
+      ]
+    },
+    {
+      "TactacObject": "group",
+      "ScriptName": "activity",
+      "Filter": null,
+      "ObjectsPerDiagram": [
+        {
+          "minimum": 0,
+          "maximum": null
+        }
+      ]
+    },
+    {
+      "TactacObject": "page",
+      "ScriptName": "macroprocess",
+      "Filter": null,
+      "ObjectsPerDiagram": [
+        {
+          "minimum": 0,
+          "maximum": null
+        }
+      ]
+    },
+    {
+      "TactacObject": "role",
+      "ScriptName": "organization",
+      "Filter": null,
+      "ObjectsPerDiagram": [
+        {
+          "minimum": 1,
+          "maximum": 1
+        }
+      ]
+    },
+    {
+      "TactacObject": "step",
+      "ScriptName": "process",
+      "Filter": null,
+      "ObjectsPerDiagram": [
+        {
+          "minimum": 1,
+          "maximum": null
+        }
+      ]
+    },
+    {
+      "TactacObject": "connectorset",
+      "ScriptName": "connectorset",
+      "Filter": "73,72,6",
+      "ObjectsPerDiagram": []
+    },
+    {
+      "TactacObject": "arrow",
+      "ScriptName": "CONNECTOR",
+      "Filter": null,
+      "ObjectsPerDiagram": [
+        {
+          "minimum": 0,
+          "maximum": 1000
+        }
+      ]
+    }
+  ]
+}
