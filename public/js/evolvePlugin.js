@@ -7,6 +7,7 @@ function loadContent(relevantObjectTypes, relevantObjectTypesDic, enableD3JS) {
     // $.getJSON( "./temp/cw_diagram_evolve_product_installation.json", function( data ) {
 
     var relevantShapes = getRelevantShapes(relevantObjectTypesDic, data.result.diagram.shapes);
+    var joiners = getRelevantJoiners(relevantShapes, data.result.diagram.joiners, enableD3JS);
     var exportJson = generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, {
       'name': data.result.name,
       'description': 'This is the description of this process from Evolve to be used Live in the field thanks to Casewise Tactac.'
@@ -19,12 +20,12 @@ function loadContent(relevantObjectTypes, relevantObjectTypesDic, enableD3JS) {
     $("<div class='codeBloc'><pre><code>" + JSON.stringify(relevantObjectTypesDic) + "</code></pre></div>").appendTo("#evo");
 
     $("<h4>Relevant objects parsed from the diagram:</h4>").appendTo("#evo");
-    var joiners = getRelevantJoiners(relevantShapes, data.result.diagram.joiners, enableD3JS);
+
     var processHtml = drawProcessSequenceHtml(relevantShapes, joiners);
     $(processHtml).appendTo("#evo");
 
     $("<div class='codeBloc'><pre><code>" + JSON.stringify(exportJson) + "</code></pre></div>").appendTo("#formated2");
-    $(downloadJSON(exportJson)).appendTo("#downloadtac");
+    $("#downloadLink").html(downloadJSON(exportJson));
     // $("<div class='codeBloc'><pre><code>" + JSON.stringify(exportJson, null, 1) + "</code></pre></div>").appendTo("#formated2");
 
     $("#tac2").html(json2HtmlTable(exportJson));
@@ -81,6 +82,8 @@ function generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, i
     switch (posInRelevantDic.TactacObject) {
       case 'step':
         // console.info(shape['cwObject']['objectTypeScriptName'] + ': ' + oName + ' >> This object has been used to create a step');
+        // var nextSteps = getNextStep(relevantObjectTypes, joiners, 3)
+
         steps.push(createStep({
             'name': oName,
             'description': oDesc,
@@ -140,16 +143,10 @@ function generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, i
   return instructionSheetJSON;
 }
 
-// Parse shapes
-
-function checkConsistencyOnShapes(shapes) {
-  //TBD
-}
 
 // Get parents and children
 // ********** NOT YET FINISHED ??
 // need to decide to use Key or Seq as an ID ... ?
-
 function getParentsAndChildrenFromListOfJoiners(joiners) {
       // 'sourceKey': sourceKey,
       // 'targetKey': targetKey,
@@ -165,21 +162,21 @@ function getParentsAndChildrenFromListOfJoiners(joiners) {
 
   joiners.forEach(function(joiner) {
     // PARENTS
-    posParents = arrayObjectIndexOf(parents, joiner.FromSeq, "father");
+    posParents = arrayObjectIndexOf(parents, joiner.sourceKey, "father");
     if (posParents < 0) {
-      parents.push({'father': joiner.FromSeq, 'children': joiner.ToSeq});
+      parents.push({'father': joiner.sourceKey, 'children': joiner.targetKey});
     }
     else {
-      parents[posParents].children = parents[posParents].children + ',' + joiner.ToSeq;
+      parents[posParents].children = parents[posParents].children + ',' + joiner.targetKey;
     }
 
     // CHILDREN
-    posChildren = arrayObjectIndexOf(children, joiner.ToSeq, "boy");
+    posChildren = arrayObjectIndexOf(children, joiner.targetKey, "boy");
     if (posChildren < 0) {
-      children.push({'boy': joiner.ToSeq, 'parents': joiner.FromSeq});
+      children.push({'boy': joiner.targetKey, 'parents': joiner.sourceKey});
     }
     else {
-      children[posChildren].parents = children[posChildren].parents + ',' + joiner.FromSeq;
+      children[posChildren].parents = children[posChildren].parents + ',' + joiner.sourceKey;
     }
   });
   return {'parents': parents, 'children': children};
@@ -244,7 +241,7 @@ function getRootNodesOfGraphFromListOfJoiners(joiners) {
   return(rootNodes);
 }
 
-
+// Important function in charge of ready th ediagram content and drawing the graph
 function getRelevantJoiners(relevantShapes, joiners, enableGraph) {
   var myList = [],
     links = [],
@@ -329,4 +326,10 @@ function getRelevantJoiners(relevantShapes, joiners, enableGraph) {
   })
 
   return myList;
+}
+
+// Check some consistency rules on exiting shapes of the diagram
+//  could be loaded from the same config file, next to the mapping of objects
+function checkConsistencyRulesOnShapes(shapes) {
+  //TBD
 }

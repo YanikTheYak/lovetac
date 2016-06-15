@@ -1,6 +1,22 @@
-// var domain = 'risualdev-tactac-api';
-var domain = 'tactacapi';
+var domain = 'risualdev-tactac-api';
+// var domain = 'tactacapi';
 
+// deserialize();
+
+function deserialize() {
+  var escapeJSON = "{\"InstructionSheetID\":\"7\",\"StepID\":\"89\",\"StepNotes\":null,\"StepProgress\":null}";
+  console.log(escapeJSON);
+  var your_object = JSON.parse(escapeJSON);
+  console.log(your_object);
+
+  var jsonAsString = JSON.stringify(your_object).replace(/\\"/g, '\\"');
+  console.log(jsonAsString);
+  // console.log(escape(jsonAsString));
+  // console.log(jsonAsString.replace(/\\"/g, '\\"')); //.replace(/\"/g,'&quot;'));
+
+  var your_object = JSON.parse(jsonAsString);
+    console.log(your_object);
+}
 
 // Get authentication to Cloud API
 
@@ -75,6 +91,81 @@ function updateByIDInstructionSheet(error, data, callback) {
     }
   });
 }
+
+getExecutedStepsByJobID(null, 4, parseExecutedStep);
+// Get Executed steps by Job ID from Cloud API ** DEPRECATED
+
+function getExecutedStepsByJobID(error, id, callback) {
+  var error = null;
+  $.getJSON('http://' + domain + '.azurewebsites.net/api/Execution/GetExecutedStepsByJobID/' + id, function(data) {
+    // console.log("getExecutedStepsByJobID: " + JSON.stringify(data, null, 1));
+    // console.debug("getExecutedStepsByJobID: " + data.Name);
+    return callback && callback(error, data);
+  });
+}
+
+// Get Executed steps by Job ID from Cloud API ** DEPRECATED
+
+function parseExecutedStep(error, executedSteps, id) {
+  var nbCompleted = 0,
+    nbNotCompleted = 0,
+    nbNotes = 0,
+    nbAnswer = 0,
+    strNotes = "",
+    job = 0,
+    display = false;
+
+  executedSteps.forEach(function(executedStep) {
+    if (executedStep.StepID > 100) {
+
+      // Pouya: Faire une liste de liste !!!
+
+      // executedStep.StepID // 10000 = exec
+      // executedStep.AnswerID // = step id
+
+      var executionValue = JSON.parse(executedStep.Notes);
+      // console.warn(executionValue);
+      if (executionValue.InstructionSheetID) {
+        nbAnswer++;
+
+        if (executionValue.StepNotes != null) {
+          nbNotes++;
+          strNotes += "  Note" + nbNotes + ": " + executionValue.StepNotes + "\n";
+        }
+
+        if (executionValue.StepProgress != null) {
+          // console.log(executionValue.StepProgress);
+          switch (executionValue.StepProgress) {
+            case "Not Completed":
+              nbNotCompleted++;
+              break;
+
+            case "Completed":
+              nbCompleted++;
+              break;
+          }
+        }
+      }
+      // console.log(job);
+      if ( job != executedStep.StepID ) {
+        display = true;
+      }
+      // console.log("--  " + JSON.stringify(executedStep, null, 1));
+      if (display) {
+        job = executedStep.StepID;
+        display = false;
+        console.log("-- Job " + job + ":");
+        var toBeCompleted = nbAnswer - (nbNotCompleted + nbCompleted);
+        console.log(nbNotes + " Note(s):");
+        if(nbNotes>0) {console.log(strNotes);}
+        console.log(nbAnswer + " Answers : " + nbCompleted + " Completed + " + nbNotCompleted + " Not Completed + " + toBeCompleted + " To Be Completed");
+        nbCompleted = 0, nbNotCompleted = 0, nbNotes = 0, nbAnswer = 0, strNotes = "";
+      }
+
+    }
+  });
+}
+
 
 
 // Get an Instruciton sheet by ID from Cloud API

@@ -62,11 +62,11 @@ function main() {
     loadContent(data, dic, enableD3JS);
 
     // ********** APIs *****************
-    getAuthenTac();
+    // getAuthenTac();
 
-    getByIDInstructionSheet(null, 36, function(err, data, next){
-      changeISName(err, data, updateByIDInstructionSheet);
-    });
+    // getByIDInstructionSheet(null, 36, function(err, data, next){
+    //   changeISName(err, data, updateByIDInstructionSheet);
+    // });
 
     // NOTE: ecrire une method STEP qui prend le 1er argument (45) et une liste de methodes a appeler dans l'ordre
     // !er arg, liste meth e tun callback pour apture l error et le resultat final

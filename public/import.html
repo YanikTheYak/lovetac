@@ -69,6 +69,7 @@ Walls free of marks and stains -->
         <img class='logo' src='./images/tactac.png'></img>
         PREVIEW
         <div id='tac'></div>
+        <div id='downloadLink'></div>
       </div>
 
     </div>
@@ -85,7 +86,7 @@ Walls free of marks and stains -->
     function displayExcelImport() {
       var result = readExcel();
       if(result) {
-        $(downloadJSON(result)).appendTo("#downloadtac");
+        $("#downloadLink").html(downloadJSON(result));
       } else { $("#formated").html('');}
 
       $("#tac").html(json2HtmlTable(result));

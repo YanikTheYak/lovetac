@@ -15,8 +15,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'https://code.jquery.com/jquery-2.2.4.min.js',
-      'https://www.gstatic.com/charts/loader.js',
+      // 'https://code.jquery.com/jquery-2.2.4.min.js',
+      // 'https://www.gstatic.com/charts/loader.js',
       'public/js/*.js',
       'spec/*.js',
       { pattern: '**/*.json', watched: true, served: true, included: false },
@@ -27,6 +27,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
+      'public/js/googleCharts.js'
     ],
 
 

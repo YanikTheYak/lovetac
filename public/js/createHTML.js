@@ -38,37 +38,47 @@ else {return '';}
 
 
 // Get next step when a step is followed by a XOR return a list
+//  pour o on regarde ses enfants si les enfants de o sont des steps on les renvoient, si il s'agit de xor on recupere les enfants des xor et on les renvoient en plus
 
 function getNextStep(relevantShapes, joiners, oSeq) {
   var genealogyTree = getParentsAndChildrenFromListOfJoiners(joiners);
+  var nextSteps = {};
 
+  // console.debug('Look for children of: ' + oSeq);
   joiners.forEach( function( joiner) {
     if(joiner.sourceKey == oSeq) {
       trgObj = relevantShapes[joiner.targetKey];
       trgOT = trgObj.cwObject.objectTypeScriptName;
-      switch (srcOT) {
+      switch (trgOT) {
         case 'process':
-          // add step
-          return
+          // console.debug(' child: step: ' + joiner.targetKey);
+          if (nextSteps.shapes === undefined) {
+            nextSteps = {'shapes': joiner.targetKey};
+          }
+          else {
+            nextSteps.shapes = nextSteps.shapes + ',' + joiner.targetKey;
+          }
           break;
         case 'connectorset':
-          // guess next steps
-
+          // console.debug(' child: connectorset: ' + joiner.targetKey);
           genealogyTree.parents.forEach( function( shape) {
-            if (shape ==  joiner.sourceKey) {
-              return shape.children;
+            // console.debug('  checking genea: ' + shape.father +" ("+ shape.children +") == "+ joiner.targetKey);
+            if (shape.father ==  joiner.targetKey) {
+              if (nextSteps.shapes === undefined) {
+                nextSteps = {'shapes': shape.children};
+              }
+              else {
+                nextSteps.shapes = nextSteps.shapes + ',' + shape.children;
+              }
             }
           });
-
           break;
+        default:
+          console.error(' default');
       }
     }
   });
-  srcOT = srcObj.cwObject.objectTypeScriptName;
-  trgOT = trgObj.cwObject.objectTypeScriptName;
-  switch (srcOT) {
-
-  }
+  return nextSteps;
 }
 
 
@@ -76,6 +86,7 @@ function getNextStep(relevantShapes, joiners, oSeq) {
 // Draw process tree in HTML
 
 function drawProcessSequenceHtml(relevantShapes, joiners) {
+  // console.log(JSON.stringify(relevantShapes, null, 1));
   var previousStep, srcOT, srcType, trgOT, trgType, srcNsme, trgName, srcObj, trgObj, oType, outputHtml = '';
 
   joiners.forEach( function( joiner) {
@@ -151,7 +162,7 @@ function drawProcessSequenceHtml(relevantShapes, joiners) {
         console.error(trgOT + ' >> This source object is unknown');
     }
 
-    outputHtml += '<li><div class="objecttype ' + srcOT + '">' + srcOT + '</div> ' + srcObj.cwObject.properties.name + ' <div class="objecttype ' + trgOT + '">' + trgOT + '</div> ' + trgObj.cwObject.properties.name + '</li>';
+    outputHtml += '<li><div class="objecttype ' + srcOT + '">' + srcOT + '</div> ' + srcObj.cwObject.properties.name + ' ' + joiner.sourceKey + ' <div class="objecttype ' + trgOT + '">' + trgOT + '</div> ' + trgObj.cwObject.properties.name + ' ' + joiner.targetKey + '</li>';
 
 
   });
