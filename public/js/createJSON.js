@@ -128,7 +128,7 @@ function createStepAnswers(stepAnswers) { //, page, instructionSheet) {
         "AnswerSetID": 1, // ref to set of answers
         "AnswerID": 1, //pos
         "TempTargetStepID": answer.TempTargetStepID
-      })
+      });
     });
   } else {answerJSON = null}
   return answerJSON;

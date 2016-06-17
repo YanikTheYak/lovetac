@@ -1,13 +1,15 @@
-
 // Load the Visualization API and the corechart package.
 google.charts.load('current', {
   'packages': ['corechart']
 });
 
+moment.locale('en');
+
 // Set a callback to run when the Google Visualization API is loaded:
-  google.charts.setOnLoadCallback(drawChart_numberOfJobsPerIs);
-  // google.charts.setOnLoadCallback(drawChart_averageDurationOfJobs);
-  google.charts.setOnLoadCallback(drawChart_ColumnChart);
+google.charts.setOnLoadCallback(drawCompletionChart);
+google.charts.setOnLoadCallback(drawChart_numberOfJobsPerIs);
+// google.charts.setOnLoadCallback(drawChart_averageDurationOfJobs);
+google.charts.setOnLoadCallback(drawChart_ColumnChart);
 
 // Callback that creates and populates a data table,
 // instantiates the pie chart, passes in the data and
@@ -38,32 +40,75 @@ function drawChart_numberOfJobsPerIs() {
   var chart = new google.visualization.PieChart(document.getElementById('chart_div_numberOfJobsPerIs'));
   chart.draw(data, options);
 }
-//
-// function drawChart_averageDurationOfJobs() {
-//
-//   // Create the data table.
-//   var data = new google.visualization.DataTable();
-//   data.addColumn('string', 'Topping');
-//   data.addColumn('number', 'Slices');
-//   data.addRows([
-//     ['<= 1 day', 3],
-//     ['2 - 5 days', 7],
-//     ['5 - 9 days', 2],
-//     ['>= 10 days', 1]
-//   ]);
-//
-//   // Set chart options
-//   var options = {
-//     'title': 'Average duration of Jobs', //Average Jobs duration',
-//     'width': 400,
-//     'height': 300,
-//     'colors': ['#b9c246', '#e49307', '#e7711b', '#d3362d', '#e2431e']
-//   };
-//
-//   // Instantiate and draw our chart, passing in some options.
-//   var chart = new google.visualization.PieChart(document.getElementById('chart_div_averageDurationOfJobs'));
-//   chart.draw(data, options);
-// }
+
+// draw Completion Chart based on cloud data using API call get exec data
+function drawCompletionChart() {
+  var dataGraph;
+
+  getExecutedStepsByJobID(null, 4, function(err, data, next) {
+    parseExecutedStep(err, data, function(err, data, next) {
+      calculIndicator(err, data, function(err, data, next) {
+
+        dataGraph = google.visualization.arrayToDataTable(data);
+        var view = new google.visualization.DataView(dataGraph);
+        var options_stacked = {
+          isStacked: true,
+          height: 300,
+          legend: {
+            position: 'top',
+            maxLines: 3
+          },
+          colors: ['#b9c246', '#e2431e', '#e49307', '#e7711b', '#d3362d' ],
+          vAxis: {
+            minValue: 0
+          }
+        };
+
+        var options_fullStacked = {
+          isStacked: 'percent',
+          height: 300,
+          legend: {position: 'top', maxLines: 3},
+          colors: ['#b9c246', '#e2431e', '#e49307', '#e7711b', '#d3362d' ],
+          vAxis: {
+            minValue: 0,
+            ticks: [0, .3, .6, .9, 1]
+          }
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        chart.draw(view, options_fullStacked);
+
+      });
+    });
+  });
+}
+
+
+function drawChart_averageDurationOfJobs() {
+
+  // Create the data table.
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Topping');
+  data.addColumn('number', 'Slices');
+  data.addRows([
+    ['<= 1 day', 3],
+    ['2 - 5 days', 7],
+    ['5 - 9 days', 2],
+    ['>= 10 days', 1]
+  ]);
+
+  // Set chart options
+  var options = {
+    'title': 'Average duration of Jobs', //Average Jobs duration',
+    'width': 400,
+    'height': 300,
+    'colors': ['#b9c246', '#e49307', '#e7711b', '#d3362d', '#e2431e']
+  };
+
+  // Instantiate and draw our chart, passing in some options.
+  var chart = new google.visualization.PieChart(document.getElementById('chart_div_averageDurationOfJobs'));
+  chart.draw(data, options);
+}
 
 function drawChart_ColumnChart() {
   var data = google.visualization.arrayToDataTable([
@@ -99,4 +144,127 @@ function drawChart_ColumnChart() {
   };
   var chart = new google.visualization.ColumnChart(document.getElementById("chart_div_ColumnChart"));
   chart.draw(view, options);
+}
+
+
+// see with pouya for sequencing async call hen more than 3 functions as callback
+var done = function(err, data) {
+
+  // ...
+
+  // err = erreur qq part
+  // data = dernier appel
+};
+
+function mstep(firstArg, listOfFunctions, done) {
+  // get and delete first of listOfFunctions
+  // do the call
+  // ...
+
+  if (listOfFunctions.length > 0) {
+    mstep(firstArg, listOfFunctions[0], done);
+  }
+}
+
+// mstep(4, [
+//   "getExecutedStepsByJobID",
+//   "parseExecutedStep",
+//   "drawIndicator",
+// ], done);
+
+
+// drawIndicator(getExecutedStepsByJobID(null, 4, parseExecutedStep));
+
+
+
+function calculIndicator(err, executions, callback) {
+  // //////////////////////////////////////////////////////
+  // console.log("executions: " + JSON.stringify(executions));
+
+  var ISID = null,
+    graphContent = [],
+    nbCompleted = 0,
+    nbNotCompleted = 0,
+    nbNotes = 0,
+    nbAnswer = 0,
+    strNotes = "",
+    job = 0,
+    answers = [],
+    currentJob = 0,
+    previousJob = 0,
+    jobInfo = [],
+    nbanswers = null,
+    toBeCompleted = null,
+  previousAnswerTime= moment();
+
+    graphContent.push(['Job', 'Completed', 'Not Completed', 'To Be Completed', { role: 'annotation'}]);
+
+
+  // console.log("NUMBER OF JOBS: " + executions.length);
+  executions.forEach(function(exec) {
+    if (exec.jobInfo !== undefined) {
+      if (exec.jobInfo.Archived == false) {
+        nbanswers = exec.answers.length;
+
+        exec.answers.forEach(function(answer) {
+          ISID = answer.InstructionSheetID;
+          stepStatus = answer.StepProgress;
+          if (stepStatus != null) {
+            switch (stepStatus) {
+              case "Not Completed":
+                nbNotCompleted++;
+                break;
+              case "Completed":
+                nbCompleted++;
+                break;
+            }
+          }
+          if (answer.StepNotes != null) {
+            nbNotes++;
+            strNotes += "  Note" + nbNotes + ": " + answer.StepNotes + "\n";
+          }
+
+          if(previousAnswerTime){console.log("Answering duration : " + moment(answer.TimeAnswered).from(previousAnswerTime));
+          previousAnswerTime=moment(answer.TimeAnswered);}
+        });
+
+        toBeCompleted = nbanswers - (nbNotCompleted + nbCompleted);
+
+        // console.log("Instruction Sheet : " + ISID + " > JOB " + exec.execID + ": " + nbanswers + " steps (" + nbCompleted + " Completed + " + nbNotCompleted + " Not Completed + " + toBeCompleted + " To Be Completed)");
+
+        var jobRequestTimeStamp = moment(exec.RequestTime);
+        var jobStartTimeStamp = moment(exec.StartTime);
+        var jobEndTimeStamp = moment(exec.EndTime);
+
+        console.log("Reac duration: " + jobStartTimeStamp.from(jobRequestTimeStamp));
+        console.log("Job duration: " + jobEndTimeStamp.from(jobStartTimeStamp));
+        // console.log("Job duration: " + moment(jobEndTimeStamp - jobStartTimeStamp).format());
+
+
+        graphContent.push(['JOB ' + exec.execID, nbCompleted, nbNotCompleted, toBeCompleted, '']);
+
+        // if (nbNotes > 0) {
+        //   console.log(nbNotes + " Note(s):");
+        //   console.log(strNotes);
+        // }
+        nbCompleted = 0, nbNotCompleted = 0, nbNotes = 0, nbanswers = 0, strNotes = "";
+      }
+    }
+
+    //
+    // var m = moment(1316116057189);
+    // console.log(m.fromNow()); // il y a une heure
+    // console.log(moment(1316116057189).fromNow()); // an hour ago
+  });
+
+  // console.log(JSON.stringify(graphContent));
+
+  return callback && callback(null, graphContent);
+
+  // <div class="indicator green">
+  //   <!-- <i class="material-icons">library_books</i> -->
+  //   <i class="material-icons">done_all</i>
+  //   <div class="title"> Jobs</div>
+  //   <div class="value"> 24 Completed / 7 Open</div>
+  // </div>
 }

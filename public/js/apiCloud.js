@@ -15,7 +15,7 @@ function deserialize() {
   // console.log(jsonAsString.replace(/\\"/g, '\\"')); //.replace(/\"/g,'&quot;'));
 
   var your_object = JSON.parse(jsonAsString);
-    console.log(your_object);
+  console.log(your_object);
 }
 
 // Get authentication to Cloud API
@@ -31,7 +31,7 @@ function getAuthenTac() {
 
   $.ajax({
     type: "POST",
-    url: "http://"+ domain +".azurewebsites.net/api/Login/Authenticate",
+    url: "http://" + domain + ".azurewebsites.net/api/Login/Authenticate",
     data: registerRequestJSON,
     contentType: "application/json",
     success: function(data) {
@@ -45,9 +45,10 @@ function getAuthenTac() {
 
 
 // Post an Instruction Sheet to Cloud API
+
 function postInstructionSheetTac(token, instructionSheet) {
   var IS_ID = -1;
-  $.getJSON('http://'+ domain +'.azurewebsites.net/api/InstructionSheet/Add', function(data) {
+  $.getJSON('http://' + domain + '.azurewebsites.net/api/InstructionSheet/Add', function(data) {
     // $("<div class='codeBloc'><pre><code>" + JSON.stringify(data, null, 1) + "</code></pre></div>").appendTo(".content");
     console.log('API - postInstructionSheetTac(token, instructionSheet): ' + JSON.stringify(data, null, 1));
   });
@@ -56,29 +57,33 @@ function postInstructionSheetTac(token, instructionSheet) {
 
 
 // Get an Instruciton sheet by ID from Cloud API
+
 function getByIDInstructionSheet(error, id, callback) {
   var error = null;
-  $.getJSON('http://'+ domain +'.azurewebsites.net/api/InstructionSheet/GetByID/' + id, function(data) {
+  $.getJSON('http://' + domain + '.azurewebsites.net/api/InstructionSheet/GetByID/' + id, function(data) {
     // console.log(JSON.stringify(data, null, 1));
-    console.debug("getByIDInstructionSheet: " + data.Name);
+    // console.debug("getByIDInstructionSheet: " + data.Name);
     return callback && callback(error, data);
   });
 }
 
 // Just for test purpose in between a get and a post call
-function changeISName (error, data, callback) {
-  var error = null, d = new Date();
+
+function changeISName(error, data, callback) {
+  var error = null,
+    d = new Date();
   data.Name = "Test " + d.toISOString().substring(0, 10);
   console.debug("changeISName: " + data.Name);
   return callback && callback(error, data);
 }
 
 // Update an Instruciton sheet by ID from Cloud API
+
 function updateByIDInstructionSheet(error, data, callback) {
   var error = null;
   $.ajax({
     type: "POST",
-    url: "http://"+ domain +".azurewebsites.net/api/InstructionSheet/Update/" + data.InstructionSheetID,
+    url: "http://" + domain + ".azurewebsites.net/api/InstructionSheet/Update/" + data.InstructionSheetID,
     data: data,
     contentType: "application/json",
     success: function(data2) {
@@ -92,7 +97,9 @@ function updateByIDInstructionSheet(error, data, callback) {
   });
 }
 
-getExecutedStepsByJobID(null, 4, parseExecutedStep);
+// getExecutedStepsByJobID(null, 4, parseExecutedStep);
+// parseExecutedStep();
+
 // Get Executed steps by Job ID from Cloud API ** DEPRECATED
 
 function getExecutedStepsByJobID(error, id, callback) {
@@ -105,65 +112,53 @@ function getExecutedStepsByJobID(error, id, callback) {
 }
 
 // Get Executed steps by Job ID from Cloud API ** DEPRECATED
+// "StepID": 10001,
+// "AnswerID": 31,
+// "Notes": "{\"InstructionSheetID\":\"7\",\"StepID\":\"94\",\"StepNotes\":null,\"StepProgress\":\"Completed\"}",
+// "JobID": 4
 
-function parseExecutedStep(error, executedSteps, id) {
+function parseExecutedStep(error, executedSteps, callback) {
+
   var nbCompleted = 0,
     nbNotCompleted = 0,
     nbNotes = 0,
     nbAnswer = 0,
     strNotes = "",
     job = 0,
-    display = false;
+    display = false,
+    executions = [],
+    answers = [],
+    currentJob = 0,
+    previousJob = 0,
+    jobInfo = [],
+    nbanswers = null,
+    header = {},
+    toBeCompleted = null,
+    header = [],
+    answers = [],
+    jobHasChanged = false;
 
+  // ALL GOOD
   executedSteps.forEach(function(executedStep) {
-    if (executedStep.StepID > 100) {
+    if (executedStep.StepID > 9999) {
+      currentJob = executedStep.StepID;
+      jobInfo = JSON.parse(executedStep.Notes);
 
-      // Pouya: Faire une liste de liste !!!
-
-      // executedStep.StepID // 10000 = exec
-      // executedStep.AnswerID // = step id
-
-      var executionValue = JSON.parse(executedStep.Notes);
-      // console.warn(executionValue);
-      if (executionValue.InstructionSheetID) {
-        nbAnswer++;
-
-        if (executionValue.StepNotes != null) {
-          nbNotes++;
-          strNotes += "  Note" + nbNotes + ": " + executionValue.StepNotes + "\n";
-        }
-
-        if (executionValue.StepProgress != null) {
-          // console.log(executionValue.StepProgress);
-          switch (executionValue.StepProgress) {
-            case "Not Completed":
-              nbNotCompleted++;
-              break;
-
-            case "Completed":
-              nbCompleted++;
-              break;
-          }
-        }
-      }
-      // console.log(job);
-      if ( job != executedStep.StepID ) {
-        display = true;
-      }
-      // console.log("--  " + JSON.stringify(executedStep, null, 1));
-      if (display) {
-        job = executedStep.StepID;
-        display = false;
-        console.log("-- Job " + job + ":");
-        var toBeCompleted = nbAnswer - (nbNotCompleted + nbCompleted);
-        console.log(nbNotes + " Note(s):");
-        if(nbNotes>0) {console.log(strNotes);}
-        console.log(nbAnswer + " Answers : " + nbCompleted + " Completed + " + nbNotCompleted + " Not Completed + " + toBeCompleted + " To Be Completed");
-        nbCompleted = 0, nbNotCompleted = 0, nbNotes = 0, nbAnswer = 0, strNotes = "";
+      if (executedStep.Notes[2] == 'A') {
+        executions.push({
+          "execID": currentJob,
+          jobInfo,
+          "answers": []
+        });
       }
 
+      if (executedStep.Notes[2] == 'I') {
+        executions[executions.length - 1].answers.push(JSON.parse(executedStep.Notes));
+      }
     }
   });
+  // console.log(JSON.stringify(executions, null, 1));
+  return callback && callback(error, executions);
 }
 
 
@@ -173,12 +168,11 @@ function parseExecutedStep(error, executedSteps, id) {
 function getAllInstructionSheet() {
   $("<img id='loarder' src='./images/5.gif'>").appendTo(".content");
 
-  var jqxhr = $.getJSON("http://"+ domain +".azurewebsites.net/api/InstructionSheet/GetAll")
+  var jqxhr = $.getJSON("http://" + domain + ".azurewebsites.net/api/InstructionSheet/GetAll")
     .complete(function() {
-      $( "#loader" ).remove();
+      $("#loader").remove();
       $("<h3>getAllInstructionSheet</h3>").appendTo(".content");
       $("<div class='codeBloc'><pre><code>" + JSON.stringify(jqxhr.responseText, null, 1) + "</code></pre></div>").appendTo(".content");
       // console.log('API - getAllInstructionSheet(): ' + JSON.stringify(jqxhr.responseText, null, 1));
     });
 }
-
