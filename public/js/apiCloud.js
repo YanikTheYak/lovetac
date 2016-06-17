@@ -31,7 +31,7 @@ function getAuthenTac() {
 
   $.ajax({
     type: "POST",
-    url: "http://" + domain + ".azurewebsites.net/api/Login/Authenticate",
+    url: "https://" + domain + ".azurewebsites.net/api/Login/Authenticate",
     data: registerRequestJSON,
     contentType: "application/json",
     success: function(data) {
@@ -48,7 +48,7 @@ function getAuthenTac() {
 
 function postInstructionSheetTac(token, instructionSheet) {
   var IS_ID = -1;
-  $.getJSON('http://' + domain + '.azurewebsites.net/api/InstructionSheet/Add', function(data) {
+  $.getJSON('https://' + domain + '.azurewebsites.net/api/InstructionSheet/Add', function(data) {
     // $("<div class='codeBloc'><pre><code>" + JSON.stringify(data, null, 1) + "</code></pre></div>").appendTo(".content");
     console.log('API - postInstructionSheetTac(token, instructionSheet): ' + JSON.stringify(data, null, 1));
   });
@@ -60,7 +60,7 @@ function postInstructionSheetTac(token, instructionSheet) {
 
 function getByIDInstructionSheet(error, id, callback) {
   var error = null;
-  $.getJSON('http://' + domain + '.azurewebsites.net/api/InstructionSheet/GetByID/' + id, function(data) {
+  $.getJSON('https://' + domain + '.azurewebsites.net/api/InstructionSheet/GetByID/' + id, function(data) {
     // console.log(JSON.stringify(data, null, 1));
     // console.debug("getByIDInstructionSheet: " + data.Name);
     return callback && callback(error, data);
@@ -83,7 +83,7 @@ function updateByIDInstructionSheet(error, data, callback) {
   var error = null;
   $.ajax({
     type: "POST",
-    url: "http://" + domain + ".azurewebsites.net/api/InstructionSheet/Update/" + data.InstructionSheetID,
+    url: "https://" + domain + ".azurewebsites.net/api/InstructionSheet/Update/" + data.InstructionSheetID,
     data: data,
     contentType: "application/json",
     success: function(data2) {
@@ -168,7 +168,7 @@ function parseExecutedStep(error, executedSteps, callback) {
 function getAllInstructionSheet() {
   $("<img id='loarder' src='./images/5.gif'>").appendTo(".content");
 
-  var jqxhr = $.getJSON("http://" + domain + ".azurewebsites.net/api/InstructionSheet/GetAll")
+  var jqxhr = $.getJSON("https://" + domain + ".azurewebsites.net/api/InstructionSheet/GetAll")
     .complete(function() {
       $("#loader").remove();
       $("<h3>getAllInstructionSheet</h3>").appendTo(".content");
