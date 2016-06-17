@@ -104,7 +104,7 @@ function updateByIDInstructionSheet(error, data, callback) {
 
 function getExecutedStepsByJobID(error, id, callback) {
   var error = null;
-  $.getJSON('http://' + domain + '.azurewebsites.net/api/Execution/GetExecutedStepsByJobID/' + id, function(data) {
+  $.getJSON('https://' + domain + '.azurewebsites.net/api/Execution/GetExecutedStepsByJobID/' + id, function(data) {
     // console.log("getExecutedStepsByJobID: " + JSON.stringify(data, null, 1));
     // console.debug("getExecutedStepsByJobID: " + data.Name);
     return callback && callback(error, data);
