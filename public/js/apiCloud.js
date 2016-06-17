@@ -18,8 +18,13 @@ function deserialize() {
   console.log(your_object);
 }
 
-// Get authentication to Cloud API
 
+/**
+ * Get authentication to Cloud API
+ * @constructor
+ * @param {string} title - The title of the book.
+ * @param {string} author - The author of the book.
+ */
 function getAuthenTac() {
   // password_md5 = $.md5('password'),
   var password_md5 = "807ff71b3301262e222ad05e5b7c4325",
@@ -44,8 +49,12 @@ function getAuthenTac() {
 }
 
 
-// Post an Instruction Sheet to Cloud API
-
+/**
+ * Post an Instruction Sheet to Cloud API
+ * @constructor
+ * @param {string} token - web token JWT. not required yet
+ * @param {object} instructionSheet - not required yet.
+ */
 function postInstructionSheetTac(token, instructionSheet) {
   var IS_ID = -1;
   $.getJSON('https://' + domain + '.azurewebsites.net/api/InstructionSheet/Add', function(data) {
@@ -55,9 +64,14 @@ function postInstructionSheetTac(token, instructionSheet) {
   return IS_ID;
 }
 
-
-// Get an Instruciton sheet by ID from Cloud API
-
+/**
+ * Get an Instruction sheet by ID from Cloud API
+ * @constructor
+ * @param {error} error - error code.
+ * @param {int} id - instruction Sheet ID.
+ * @param {string} callback - callback function.
+ * @return {object} InstructionSheet -
+ */
 function getByIDInstructionSheet(error, id, callback) {
   var error = null;
   $.getJSON('https://' + domain + '.azurewebsites.net/api/InstructionSheet/GetByID/' + id, function(data) {
@@ -67,8 +81,13 @@ function getByIDInstructionSheet(error, id, callback) {
   });
 }
 
-// Just for test purpose in between a get and a post call
-
+/**
+ * Just for test purpose in between a get and a post call
+ * @constructor
+ * @param {error} error - error code.
+ * @param {object} data - instruction Sheet.
+ * @param {string} callback - callback function.
+ */
 function changeISName(error, data, callback) {
   var error = null,
     d = new Date();
