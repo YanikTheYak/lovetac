@@ -204,6 +204,7 @@ function calculIndicator(err, executions, callback) {
   executions.forEach(function(exec) {
     if (exec.jobInfo !== undefined) {
       if (exec.jobInfo.Archived == false) {
+        // console.log("executions: " + JSON.stringify(exec));
         nbanswers = exec.answers.length;
 
         exec.answers.forEach(function(answer) {
@@ -224,22 +225,26 @@ function calculIndicator(err, executions, callback) {
             strNotes += "  Note" + nbNotes + ": " + answer.StepNotes + "\n";
           }
 
-          if(previousAnswerTime){console.log("Answering duration : " + moment(answer.TimeAnswered).from(previousAnswerTime));
-          previousAnswerTime=moment(answer.TimeAnswered);}
+          if(previousAnswerTime){
+            // console.log("Answering duration : " + moment(answer.TimeAnswered).from(previousAnswerTime));
+            // previousAnswerTime=moment(answer.TimeAnswered);
+          }
         });
 
         toBeCompleted = nbanswers - (nbNotCompleted + nbCompleted);
 
         // console.log("Instruction Sheet : " + ISID + " > JOB " + exec.execID + ": " + nbanswers + " steps (" + nbCompleted + " Completed + " + nbNotCompleted + " Not Completed + " + toBeCompleted + " To Be Completed)");
 
-        var jobRequestTimeStamp = moment(exec.RequestTime);
-        var jobStartTimeStamp = moment(exec.StartTime);
-        var jobEndTimeStamp = moment(exec.EndTime);
+        var jobRequestTimeStamp = moment(exec.jobInfo.RequestTime);
+        var jobStartTimeStamp = moment(exec.jobInfoStartTime);
+        var jobEndTimeStamp = moment(exec.jobInfo.EndTime);
 
-        console.log("Reac duration: " + jobStartTimeStamp.from(jobRequestTimeStamp));
-        console.log("Job duration: " + jobEndTimeStamp.from(jobStartTimeStamp));
-        // console.log("Job duration: " + moment(jobEndTimeStamp - jobStartTimeStamp).format());
+        // console.log('exec.RequestTime: ' +  exec.RequestTime + '. exec.RequestTime: ' + exec.StartTime + '. exec.EndTime: ' + exec.EndTime);
 
+        console.log('JOB ' + exec.execID + " - " + exec.jobInfo.Name +  " reacts in " + humanizedDuration(jobRequestTimeStamp, jobStartTimeStamp) + " and has spend " + humanizedDuration(jobStartTimeStamp, jobEndTimeStamp) + " on it.");
+
+
+        // console.log(humanizedDuration(jobStartTimeStamp, jobEndTimeStamp));
 
         graphContent.push(['JOB ' + exec.execID, nbCompleted, nbNotCompleted, toBeCompleted, '']);
 
@@ -255,6 +260,9 @@ function calculIndicator(err, executions, callback) {
     // var m = moment(1316116057189);
     // console.log(m.fromNow()); // il y a une heure
     // console.log(moment(1316116057189).fromNow()); // an hour ago
+
+
+
   });
 
   // console.log(JSON.stringify(graphContent));
@@ -267,4 +275,13 @@ function calculIndicator(err, executions, callback) {
   //   <div class="title"> Jobs</div>
   //   <div class="value"> 24 Completed / 7 Open</div>
   // </div>
+}
+
+
+function humanizedDuration(now, then) {
+  var ms = moment(now).diff(moment(then));
+  var d = moment.duration(ms);
+  // var s = d.format("hh:mm:ss");
+  // console.log(d.humanize());
+  return d.humanize();
 }
