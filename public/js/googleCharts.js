@@ -31,8 +31,8 @@ function drawChart_numberOfJobsPerUser() {
         // Set chart options
         var options = {
           'title': 'Open Jobs per User',
-          'width': 400,
-          'height': 400,
+          'width': 300,
+          'height': 200,
           // 'colors': ['#e2431e', '#d3362d', '#e7711b', '#e49307', '#e49307', '#b9c246'],
           'pieSliceText': 'value'
         };
@@ -74,7 +74,7 @@ function drawChart_CompletionChart() {
         var options_fullStacked = {
           title: '% of completion per Job id',
           isStacked: 'percent',
-          height: 400,
+          height: 300,
           legend: {position: 'top', maxLines: 3},
           colors: ['#b9c246', '#e2431e', '#e49307', '#e7711b', '#d3362d' ],
           vAxis: {
@@ -152,8 +152,8 @@ function drawChart_ColumnChart_averageDurationOfJobs() {
 
         var options = {
           title: 'Duration of Jobs',
-          width: 600,
-          height: 400,
+          width: 300,
+          height: 300,
           bar: {
             groupWidth: "95%"
           },
