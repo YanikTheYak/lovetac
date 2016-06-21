@@ -30,11 +30,12 @@ function drawChart_numberOfJobsPerUser() {
 
         // Set chart options
         var options = {
-          'title': 'Open Jobs per User',
-          'width': 300,
-          'height': 200,
-          // 'colors': ['#e2431e', '#d3362d', '#e7711b', '#e49307', '#e49307', '#b9c246'],
-          'pieSliceText': 'value'
+          title: 'Open Jobs per User',
+          width: 200,
+          height: 300,
+          legend: {position: 'bottom', maxLines: 5},
+          // colors: ['#e2431e', '#d3362d', '#e7711b', '#e49307', '#e49307', '#b9c246'],
+          pieSliceText: 'value'
         };
 
         // Instantiate and draw our chart, passing in some options.
@@ -57,26 +58,26 @@ function drawChart_CompletionChart() {
 
         dataGraph = google.visualization.arrayToDataTable(data);
         var view = new google.visualization.DataView(dataGraph);
-        var options_stacked = {
-          title: '% of completion per Job id',
-          isStacked: true,
-          height: 500,
-          legend: {
-            position: 'top',
-            maxLines: 3
-          },
-          colors: ['#b9c246', '#e2431e', '#e49307', '#e7711b', '#d3362d' ],
-          vAxis: {
-            minValue: 0
-          }
-        };
+        // var options_stacked = {
+        //   title: '% of completion per Job',
+        //   isStacked: true,
+        //   height: 300,
+        //   legend: {
+        //     position: 'top',
+        //     maxLines: 3
+        //   },
+        //   colors: ['#b9c246', '#e2431e', '#eeeeee', '#e7711b', '#d3362d' ],
+        //   vAxis: {
+        //     minValue: 0
+        //   }
+        // };
 
         var options_fullStacked = {
           title: '% of completion per Job id',
           isStacked: 'percent',
           height: 300,
-          legend: {position: 'top', maxLines: 3},
-          colors: ['#b9c246', '#e2431e', '#e49307', '#e7711b', '#d3362d' ],
+          legend: {position: 'bottom', maxLines: 3},
+          colors: ['#b9c246', '#e2431e', '#eeeeee', '#e49307', '#e7711b', '#d3362d' ],
           vAxis: {
             minValue: 0,
             ticks: [0, .3, .6, .9, 1]
@@ -109,7 +110,7 @@ function drawChart_averageDurationOfJobs() {
   // Set chart options
   var options = {
     'title': 'Average duration of Jobs', //Average Jobs duration',
-    'width': 400,
+    'width': 300,
     'height': 300,
     'colors': ['#b9c246', '#e49307', '#e7711b', '#d3362d', '#e2431e']
   };
@@ -397,7 +398,7 @@ function getDataTableForExecutionsCompletion(err, executions, callback) {
     toBeCompleted = null,
     previousAnswerTime= moment();
 
-    graphContent.push(['Job', 'Completed', 'Not Completed', 'To Be Completed', { role: 'annotation'}]);
+    graphContent.push(['Job', 'Done', 'Not done', 'To do', { role: 'annotation'}]);
 
 
   // console.log("NUMBER OF JOBS: " + executions.length);
