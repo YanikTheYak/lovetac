@@ -37,54 +37,11 @@ else {return '';}
 }
 
 
-// Get next step when a step is followed by a XOR return a list
-//  pour o on regarde ses enfants si les enfants de o sont des steps on les renvoient, si il s'agit de xor on recupere les enfants des xor et on les renvoient en plus
-
-function getNextStep(relevantShapes, joiners, oSeq) {
-  var genealogyTree = getParentsAndChildrenFromListOfJoiners(joiners);
-  var nextSteps = {};
-
-  // console.debug('Look for children of: ' + oSeq);
-  joiners.forEach( function( joiner) {
-    if(joiner.sourceKey == oSeq) {
-      trgObj = relevantShapes[joiner.targetKey];
-      trgOT = trgObj.cwObject.objectTypeScriptName;
-      switch (trgOT) {
-        case 'process':
-          // console.debug(' child: step: ' + joiner.targetKey);
-          if (nextSteps.shapes === undefined) {
-            nextSteps = {'shapes': joiner.targetKey};
-          }
-          else {
-            nextSteps.shapes = nextSteps.shapes + ',' + joiner.targetKey;
-          }
-          break;
-        case 'connectorset':
-          // console.debug(' child: connectorset: ' + joiner.targetKey);
-          genealogyTree.parents.forEach( function( shape) {
-            // console.debug('  checking genea: ' + shape.father +" ("+ shape.children +") == "+ joiner.targetKey);
-            if (shape.father ==  joiner.targetKey) {
-              if (nextSteps.shapes === undefined) {
-                nextSteps = {'shapes': shape.children};
-              }
-              else {
-                nextSteps.shapes = nextSteps.shapes + ',' + shape.children;
-              }
-            }
-          });
-          break;
-        default:
-          console.error(' default');
-      }
-    }
-  });
-  return nextSteps;
-}
 
 
-
-// Draw process tree in HTML
-
+/*
+ * Draw process tree in HTML
+ */
 function drawProcessSequenceHtml(relevantShapes, joiners) {
   // console.log(JSON.stringify(relevantShapes, null, 1));
   var previousStep, srcOT, srcType, trgOT, trgType, srcNsme, trgName, srcObj, trgObj, oType, outputHtml = '';
@@ -163,11 +120,7 @@ function drawProcessSequenceHtml(relevantShapes, joiners) {
     }
 
     outputHtml += '<li><div class="objecttype ' + srcOT + '">' + srcOT + '</div> ' + srcObj.cwObject.properties.name + ' ' + joiner.sourceKey + ' <div class="objecttype ' + trgOT + '">' + trgOT + '</div> ' + trgObj.cwObject.properties.name + ' ' + joiner.targetKey + '</li>';
-
-
   });
-
   // add sort joiners by position or starting from event or oprhean object
   return outputHtml;
-
 }

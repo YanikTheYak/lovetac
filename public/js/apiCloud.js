@@ -1,5 +1,5 @@
-var domain = 'risualdev-tactac-api';
-// var domain = 'tactacapi';
+// var domain = 'risualdev-tactac-api';
+var domain = 'tactacapi';
 
 // deserialize();
 
@@ -90,15 +90,16 @@ function getByIDInstructionSheet(error, id, callback) {
  */
 function changeISName(error, data, callback) {
   var error = null,
-    d = new Date();
-  data.Name = "Test " + d.toISOString().substring(0, 10);
-  console.debug("changeISName: " + data.Name);
+    d = new Date(),
+    previousName = data.Name;
+  data.Name = previousName + " " + d.toISOString().substring(0, 19);
+  console.info("changeISName: " + previousName + " > " + data.Name);
   return callback && callback(error, data);
 }
 
 // Update an Instruciton sheet by ID from Cloud API
 
-function updateByIDInstructionSheet(error, data, callback) {
+function testUpdateByIDInstructionSheet(error, data, callback) {
   var error = null;
   $.ajax({
     type: "POST",
@@ -135,6 +136,7 @@ function getExecutedStepsByJobID(error, id, callback) {
 // "AnswerID": 31,
 // "Notes": "{\"InstructionSheetID\":\"7\",\"StepID\":\"94\",\"StepNotes\":null,\"StepProgress\":\"Completed\"}",
 // "JobID": 4
+
 
 function parseExecutedStep(error, executedSteps, callback) {
 

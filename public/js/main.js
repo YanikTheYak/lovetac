@@ -64,14 +64,15 @@ function main() {
     // ********** APIs *****************
     // getAuthenTac();
 
-    // getByIDInstructionSheet(null, 36, function(err, data, next){
-    //   changeISName(err, data, updateByIDInstructionSheet);
-    // });
 
     // NOTE: ecrire une method STEP qui prend le 1er argument (45) et une liste de methodes a appeler dans l'ordre
     // !er arg, liste meth e tun callback pour apture l error et le resultat final
 
-    // updateByIDInstructionSheet(null, 45, ISdataJson);
+    // getByIDInstructionSheet(null, 45, function(err, data, next){
+    //   changeISName(err, data, testUpdateByIDInstructionSheet);
+    // });
+
+    // testUpdateByIDInstructionSheet(null, 45, ISdataJson);
 
     // getAllInstructionSheet();
 

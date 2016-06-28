@@ -3,62 +3,79 @@
   'use strict';
 
   describe('LOVETAC:', function() {
+    //
+    // it('Guess root node(s) of graph from joiners list', function(done) {
+    //   $.getJSON("/base/spec/joiners.json", function(joiners) {
+    //     var rootNodes = getRootNodesOfGraphFromListOfJoiners(joiners),
+    //       result = [11];
+    //
+    //     expect(rootNodes).toEqual(result);
+    //     done();
+    //   });
+    // });
+    //
+    // it('Guess next node(s) of a node in a graph', function(done) {
+    //   $.getJSON("/base/spec/joiners.json", function(joiners) {
+    //     $.getJSON("/base/spec/relevantShapes.json", function(relevantShapes) {
+    //       var nextSteps = getNextStep(relevantShapes, joiners, 8),
+    //       result = {shapes: '9,2'};
+    //       expect(nextSteps).toEqual(result);
+    //       // console.log(JSON.stringify(nextSteps, null, 1));
+    //       done();
+    //     });
+    //   });
+    // });
+    //
+    // it('Guess next node(s) of a node in a graph', function(done) {
+    //   $.getJSON("/base/spec/joiners.json", function(joiners) {
+    //     $.getJSON("/base/spec/relevantShapes.json", function(relevantShapes) {
+    //       var nextSteps = getNextStep(relevantShapes, joiners, 7),
+    //       result = {shapes: '9,2'};
+    //       expect(nextSteps).toEqual(result);
+    //       // console.log(JSON.stringify(nextSteps, null, 1));
+    //       done();
+    //     });
+    //   });
+    // });
+    //
+    // it('Guess next node(s) of a node in a graph', function(done) {
+    //   $.getJSON("/base/spec/joiners.json", function(joiners) {
+    //     $.getJSON("/base/spec/relevantShapes.json", function(relevantShapes) {
+    //       var nextSteps = getNextStep(relevantShapes, joiners, 3),
+    //       result = {shapes: '5,0'};
+    //       expect(nextSteps).toEqual(result);
+    //       // console.log(JSON.stringify(nextSteps, null, 1));
+    //       done();
+    //     });
+    //   });
+    // });
+    //
+    // it('Guess next node(s) of a node in a graph', function(done) {
+    //   $.getJSON("/base/spec/joiners.json", function(joiners) {
+    //     $.getJSON("/base/spec/relevantShapes.json", function(relevantShapes) {
+    //       var nextSteps = getNextStep(relevantShapes, joiners, 11),
+    //       result = {'shapes': 7};
+    //       expect(nextSteps).toEqual(result);
+    //       // console.log(JSON.stringify(nextSteps, null, 1));
+    //       done();
+    //     });
+    //   });
+    // });
 
-    it('Guess root node(s) of graph from joiners list', function(done) {
+    it('Get all nodes as a graph', function(done) {
       $.getJSON("/base/spec/joiners.json", function(joiners) {
-        var rootNodes = getRootNodesOfGraphFromListOfJoiners(joiners),
-          result = [11];
+        // $.getJSON("/base/spec/relevantShapes.json", function(relevantShapes) {
+          // var nextSteps = getNextStep(relevantShapes, joiners, 11), // 11: event
+          var result = {'shapes': 7};
 
-        expect(rootNodes).toEqual(result);
-        done();
-      });
-    });
+          var genealogyList = getParentsAndChildrenFromListOfJoiners(joiners);
+          var tree = buildTree(genealogyList, 11, {});
+          console.log('test result: ' + JSON.stringify(tree, null, 1));
 
-    it('Guess next node(s) of a node in a graph', function(done) {
-      $.getJSON("/base/spec/joiners.json", function(joiners) {
-        $.getJSON("/base/spec/relevantShapes.json", function(relevantShapes) {
-          var nextSteps = getNextStep(relevantShapes, joiners, 8),
-          result = {shapes: '9,2'};
-          expect(nextSteps).toEqual(result);
+          expect(tree).toEqual(result);
           // console.log(JSON.stringify(nextSteps, null, 1));
           done();
-        });
-      });
-    });
-
-    it('Guess next node(s) of a node in a graph', function(done) {
-      $.getJSON("/base/spec/joiners.json", function(joiners) {
-        $.getJSON("/base/spec/relevantShapes.json", function(relevantShapes) {
-          var nextSteps = getNextStep(relevantShapes, joiners, 7),
-          result = {shapes: '9,2'};
-          expect(nextSteps).toEqual(result);
-          // console.log(JSON.stringify(nextSteps, null, 1));
-          done();
-        });
-      });
-    });
-
-    it('Guess next node(s) of a node in a graph', function(done) {
-      $.getJSON("/base/spec/joiners.json", function(joiners) {
-        $.getJSON("/base/spec/relevantShapes.json", function(relevantShapes) {
-          var nextSteps = getNextStep(relevantShapes, joiners, 3),
-          result = {shapes: '5,0'};
-          expect(nextSteps).toEqual(result);
-          // console.log(JSON.stringify(nextSteps, null, 1));
-          done();
-        });
-      });
-    });
-
-    it('Guess next node(s) of a node in a graph', function(done) {
-      $.getJSON("/base/spec/joiners.json", function(joiners) {
-        $.getJSON("/base/spec/relevantShapes.json", function(relevantShapes) {
-          var nextSteps = getNextStep(relevantShapes, joiners, 11),
-          result = {'shapes': 7};
-          expect(nextSteps).toEqual(result);
-          // console.log(JSON.stringify(nextSteps, null, 1));
-          done();
-        });
+        // });
       });
     });
 

@@ -2,6 +2,7 @@
 
 function loadContent(relevantObjectTypes, relevantObjectTypesDic, enableD3JS) {
   $.getJSON("./temp/cw_evolve_Assess_Customer_Accounts_diagram.json", function(data) {
+
     // $.getJSON( "./temp/cw_diagram_evolve_basic_steps.json", function( data ) {
     // $.getJSON( "./temp/cw_evolve_diagram.json", function( data ) {
     // $.getJSON( "./temp/cw_diagram_evolve_product_installation.json", function( data ) {
@@ -20,7 +21,6 @@ function loadContent(relevantObjectTypes, relevantObjectTypesDic, enableD3JS) {
     $("<div class='codeBloc'><pre><code>" + JSON.stringify(relevantObjectTypesDic) + "</code></pre></div>").appendTo("#evo");
 
     $("<h4>Relevant objects parsed from the diagram:</h4>").appendTo("#evo");
-
     var processHtml = drawProcessSequenceHtml(relevantShapes, joiners);
     $(processHtml).appendTo("#evo");
 
@@ -32,8 +32,9 @@ function loadContent(relevantObjectTypes, relevantObjectTypesDic, enableD3JS) {
   });
 }
 
-// Parse shapes
-
+/*
+ * Parse shapes
+ */
 function getRelevantShapes(relevantObjectTypesDic, shapes) {
   var relevantShapes = [];
   // LATER: to build an external config file with the required consitency rules
@@ -50,9 +51,11 @@ function getRelevantShapes(relevantObjectTypesDic, shapes) {
   return relevantShapes;
 }
 
-// function generate an Instruction Sheet in JSON for import in the cloud API
-
+/*
+ * function generate an Instruction Sheet in JSON for import in the cloud API
+ */
 function generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, instructionSheet, shapes, enableLog) {
+
   var rule = [],
     relevantShapes = [],
     pages = [],
@@ -144,10 +147,11 @@ function generateInstructionSheet(relevantObjectTypes, relevantObjectTypesDic, i
 }
 
 
-// Get parents and children
-// ********** NOT YET FINISHED ??
-// need to decide to use Key or Seq as an ID ... ?
-function getParentsAndChildrenFromListOfJoiners(joiners) {
+/* Get parents and children
+ * ********** NOT YET FINISHED ??
+ * need to decide to use Key or Seq as an ID ... ?
+ */
+function getParentsAndChildrenFromListOfJoiners( joiners) {
       // 'sourceKey': sourceKey,
       // 'targetKey': targetKey,
       // 'FromSeq': sourceSeq,
@@ -157,10 +161,9 @@ function getParentsAndChildrenFromListOfJoiners(joiners) {
     ,rootNodes = []
     ,posParents
     ,posChildren
-    ,HasGrandParent
-  ;
-
-  joiners.forEach(function(joiner) {
+    ,HasGrandParent;
+    console.debug('getParentsAndChildrenFromListOfJoiners: ' + JSON.stringify(joiners));
+    joiners.forEach(function(joiner) {
     // PARENTS
     posParents = arrayObjectIndexOf(parents, joiner.sourceKey, "father");
     if (posParents < 0) {
@@ -183,8 +186,9 @@ function getParentsAndChildrenFromListOfJoiners(joiners) {
 }
 
 
-// Parse and get only the joiners
-
+/*
+ * Parse and get only the joiners
+ */
 function getRootNodesOfGraphFromListOfJoiners(joiners) {
   // parcorus tous les seq
   // list seq enfant et seq parent
@@ -241,7 +245,120 @@ function getRootNodesOfGraphFromListOfJoiners(joiners) {
   return(rootNodes);
 }
 
-// Important function in charge of ready th ediagram content and drawing the graph
+
+
+// Get next step when a step is followed by a XOR return a list
+//  pour o on regarde ses enfants si les enfants de o sont des steps on les renvoient, si il s'agit de xor on recupere les enfants des xor et on les renvoient en plus
+function getNextStep(relevantShapes, joiners, oSeq) {
+  var genealogyTree = getParentsAndChildrenFromListOfJoiners(joiners);
+  var nextSteps = {};
+
+  // console.debug('Look for children of: ' + oSeq);
+  joiners.forEach( function( joiner) {
+    if(joiner.sourceKey == oSeq) {
+      trgObj = relevantShapes[joiner.targetKey];
+      trgOT = trgObj.cwObject.objectTypeScriptName;
+      switch (trgOT) {
+        case 'process':
+          // console.debug(' child: step: ' + joiner.targetKey);
+          if (nextSteps.shapes === undefined) {
+            nextSteps = {'shapes': joiner.targetKey};
+          }
+          else {
+            nextSteps.shapes = nextSteps.shapes + ',' + joiner.targetKey;
+          }
+          break;
+        case 'connectorset':
+          // console.debug(' child: connectorset: ' + joiner.targetKey);
+          genealogyTree.parents.forEach( function( shape) {
+            // console.debug('  checking genea: ' + shape.father +" ("+ shape.children +") == "+ joiner.targetKey);
+            if (shape.father ==  joiner.targetKey) {
+              if (nextSteps.shapes === undefined) {
+                nextSteps = {'shapes': shape.children};
+              }
+              else {
+                nextSteps.shapes = nextSteps.shapes + ',' + shape.children;
+              }
+            }
+          });
+          break;
+        default:
+          console.error(' default');
+      }
+    }
+  });
+  return nextSteps;
+}
+
+////////////////////////////////////////
+function containsObject(obj, list) {
+  var i;
+  for (i = 0; i < list.length; i++) {
+    if (list[i] === obj) {
+      return true;
+    }
+  }
+  return false;
+} //////////////////////////////////////
+
+
+function getChild(genealogyList, ofather) {
+  genealogyList.parents.forEach( function( object) {
+    if (object.father ==  ofather) {
+      var child = JSON.parse(object.children);
+      // console.log(ofather + ' getChild: ' + JSON.stringify(child) + ', ' + JSON.stringify(genealogyList));
+      return child;
+    }
+  });
+}
+
+function buildTree(genealogyList, currentObject, tree) {
+  var child;
+  genealogyList.parents.forEach(function(object) {
+    if (object.father == currentObject) {
+      child = object.children;
+      // if (typeof child === 'number') {
+      //   // console.log('typeof child: ' + typeof child);
+      // }
+      //
+      if (typeof child === 'string') {
+        child = child.split(',');
+      }
+    }
+  });
+  console.log(currentObject + ', child: ' + child + ', ' + JSON.stringify(tree));
+
+  if (child != undefined) {
+    if (typeof child === 'number') {
+      tree.shape = buildTree(genealogyList, child, tree);
+      //return child;
+    } else {
+      child.forEach(function(shape) {
+        tree.shape = buildTree(genealogyList, shape, tree);
+      });
+    }
+  } else {
+    tree.shape = currentObject;
+    tree.next = child;
+    //console.log('typeof child: ' + typeof child);
+    return tree;
+  }
+}
+
+var countdown = function(value) {
+    if (value > 0) {
+        console.log(value);
+        return countdown(value - 1);
+    } else {
+        return value;
+    }
+};
+// countdown(10);
+
+/*
+ * Important function in charge of ready th ediagram content and drawing the graph
+ * including D3JS required stuff to build a directgraph
+ */
 function getRelevantJoiners(relevantShapes, joiners, enableGraph) {
   var myList = [],
     links = [],
