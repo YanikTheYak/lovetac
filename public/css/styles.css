@@ -34,6 +34,12 @@ img.logo {
   background-color: #68cf9b;
 }
 
+div.indicator > .material-icons { padding: 0;}
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
 div.indicator {
   vertical-align: top;
   border-radius: 10px;
@@ -59,7 +65,17 @@ div.indicator {
   color: rgb(0, 120, 215);
 }
 
-
+/******************/
+.gold {
+  color: rgb(235, 211, 38);
+}
+.silver {
+  color: rgb(188, 192, 196);
+}
+.bronze {
+  color: rgb(215, 176, 143);
+}
+/******************/
 div.indicator > * {
   padding: 10px;
 }
