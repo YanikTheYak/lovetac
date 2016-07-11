@@ -1,3 +1,7 @@
+i.material-icons {
+/*    display: none;*/
+  }
+
 body {
     font-family: arial, serif;
     font-size: 12px;
@@ -70,7 +74,7 @@ div.indicator {
   color: rgb(235, 211, 38);
 }
 .silver {
-  color: rgb(188, 192, 196);
+  color: rgb(168, 172, 176);
 }
 .bronze {
   color: rgb(215, 176, 143);
@@ -95,7 +99,8 @@ div.indicator > div.title {
 }
 
 div.indicator > div.value {
-  text-align: right;
+/*  text-align: right;*/
+/*  float: right;*/
   vertical-align: bottom;
 }
 

@@ -1,0 +1,94 @@
+http://stackoverflow.com/help/what-are-badges
+
+Autobiographer
+  Complete "About Me" section of user profile
+Enthusiast - 2/30
+  Visit the site each day for 30 consecutive days. (Days are counted in UTC.)
+Fanatic - 2/100
+  Visit the site each day for 100 consecutive days. (Days are counted in UTC.)
+Altruist
+  First bounty you manually award on another person's question
+Archaeologist - 0/100
+  Edit 100 posts that were inactive for 6 months
+Benefactor
+  First bounty you manually award on your own question
+Citizen Patrol
+  First flagged post
+Civic Duty - 0/300
+  Vote 300 or more times
+Cleanup
+  First rollback
+Commentator - 0/10
+  Leave 10 comments
+Copy Editor - 0/500
+  Edit 500 posts (excluding own or deleted posts and tag edits)
+Critic
+  First down vote
+Curious - 0/5
+  Ask a well-received question on 5 separate days, and maintain a positive question record
+Custodian
+  Complete at least one review task. This badge is awarded once per review type
+Deputy - 0/80
+  Raise 80 helpful flags
+Disciplined
+  Delete own post with score of 3 or higher
+Editor
+  First edit
+Electorate - 0/600
+  Vote on 600 questions and 25% or more of total votes are on questions
+Epic - 0/50
+  Earn 200 daily reputation 50 times
+Excavator
+  Edit first post that was inactive for 6 months
+Explainer
+  Edit and answer 1 question (both actions within 12 hours, answer score > 0)
+Illuminator - 0/500
+  Edit and answer 500 questions (both actions within 12 hours, answer score > 0)
+Inquisitive - 0/30
+  Ask a well-received question on 30 separate days, and maintain a positive question record
+Investor
+  First bounty you offer on another person's question
+Legendary - 0/150
+  Earn 200 daily reputation 150 times
+Marshal - 0/500
+  Raise 500 helpful flags
+Mortarboard
+  Earn at least 200 reputation (the daily maximum) in a single day
+Necromancer
+  Answer a question more than 60 days later with score of 5 or more
+Organizer
+  First retag
+Peer Pressure
+  Delete own post with score of -3 or lower
+Promoter
+  First bounty you offer on your own question
+Proofreader - 0/100
+  Approve or reject 100 suggested edits
+Refiner - 0/50
+  Edit and answer 50 questions (both actions within 12 hours, answer score > 0)
+Research Assistant - 0/50
+  Edit 50 tag wikis
+Revival
+  Answer more than 30 days after a question was asked as first answer scoring 2 or more
+Scholar
+  Ask a question and accept an answer
+Self-Learner
+  Answer your own question with score of 3 or more
+Socratic - 0/100
+  Ask a well-received question on 100 separate days, and maintain a positive question record
+Sportsmanship - 0/100
+  Up vote 100 answers on questions where an answer of yours has a positive score
+Strunk & White - 0/80
+  Edit 80 posts
+Student
+  First question with score of 1 or more
+Suffrage - 0/30
+  Use 30 votes in a day
+Supporter
+  First up vote
+Tag Editor
+  First tag wiki edit
+Teacher
+  Answer a question with score of 1 or more
+Vox Populi - 0/40
+  Use the maximum 40 votes in a day
