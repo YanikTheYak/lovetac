@@ -52,8 +52,10 @@ div.indicator {
   position: relative;
   width: 205px;
   min-height: 100px;
-  background: rgba(175, 175, 175, 0.1);
-/*  border: 2px solid #eee;*/
+  background: #eee;
+  box-shadow: 1px 1px 12px;
+/*  background: rgba(175, 175, 175, 0.1);*/
+  border: 1px solid ;
 /*  color: rgb(104, 207, 155);*/
 }
 .green {
@@ -70,6 +72,9 @@ div.indicator {
 }
 
 /******************/
+.appBgColor {
+  background-color: rgb(239, 246, 249);
+}
 .gold {
   color: rgb(235, 211, 38);
 }
@@ -102,6 +107,7 @@ div.indicator > div.value {
 /*  text-align: right;*/
 /*  float: right;*/
   vertical-align: bottom;
+  color: #000;
 }
 
 
