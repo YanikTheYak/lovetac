@@ -79,7 +79,8 @@ div.indicator {
   color: rgb(235, 211, 38);
 }
 .silver {
-  color: rgb(168, 172, 176);
+  color: #aaa;
+/*  color: rgb(168, 172, 176);*/
 }
 .bronze {
   color: rgb(215, 176, 143);
