@@ -73,7 +73,7 @@ div.indicator {
 
 /******************/
 .appBgColor {
-  background-color: rgb(239, 246, 249);
+  background-color: rgb(233, 244, 245);
 }
 .gold {
   color: rgb(235, 211, 38);
@@ -110,8 +110,28 @@ div.indicator > div.value {
   color: #000;
 }
 
+/* ********************* */
 
+ul.menu-level1 > li {
+  display: inline-block;
+  font-size: 16px;
+}
 
+.menu-link > a:link, .menu-link > a:visited {
+    background-color: #666;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.menu-link > a:hover, .menu-link > a:active {
+    background-color: #ccc;
+    color: #000;
+}
+
+/* *********************** */
 textarea {
   margin-left: 3%;
   border: 2px solid #018641;
