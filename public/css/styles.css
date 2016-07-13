@@ -28,6 +28,31 @@ img.logo {
   left: 25%;
 }
 
+/* ************************ */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+/* ************************ */
 .excel {
   background-color: #018641;
 }
@@ -85,6 +110,10 @@ div.indicator {
 .bronze {
   color: rgb(215, 176, 143);
 }
+.white , div.indicator.white > div.value  {
+  color: #ccc;
+}
+
 /******************/
 div.indicator > * {
   padding: 10px;
@@ -105,8 +134,6 @@ div.indicator > div.title {
 }
 
 div.indicator > div.value {
-/*  text-align: right;*/
-/*  float: right;*/
   vertical-align: bottom;
   color: #000;
 }
