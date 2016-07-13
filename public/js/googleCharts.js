@@ -1,6 +1,6 @@
 // Load the Visualization API and the corechart package.
 google.charts.load('current', {
-  'packages': ['corechart']
+  'packages': ['corechart', 'table']
 });
 
 var instructionSheets_ID_Name_Dic = {
@@ -14,6 +14,8 @@ google.charts.setOnLoadCallback(drawChart_CompletionChart);
 google.charts.setOnLoadCallback(drawChart_numberOfJobsPerUser);
 // google.charts.setOnLoadCallback(drawChart_averageDurationOfJobs);
 google.charts.setOnLoadCallback(drawChart_ColumnChart_averageDurationOfJobs);
+google.charts.setOnLoadCallback(drawTable);
+
 
 // Callback that creates and populates a data table,
 // instantiates the pie chart, passes in the data and
@@ -31,9 +33,10 @@ function drawChart_numberOfJobsPerUser() {
         // Set chart options
         var options = {
           title: 'Open Jobs per User',
-          width: 200,
+          width: 400,
           height: 300,
-          legend: {position: 'bottom', maxLines: 5},
+          legend: {position: 'right', maxLines: 5},
+           is3D: true,
           // colors: ['#e2431e', '#d3362d', '#e7711b', '#e49307', '#e49307', '#b9c246'],
           pieSliceText: 'value'
         };
@@ -45,6 +48,52 @@ function drawChart_numberOfJobsPerUser() {
     });
   });
 }
+
+
+/**
+ * draw table data
+ */
+function drawTable() {
+  var dataGraph;
+  // Create the data table.
+  getExecutedStepsByJobID(null, 4, function(err, data, next) {
+    parseExecutedStep(null, data, function(err, data, next) {
+      getDataTableForExecutionsPerUser(null, data, function(err, data, next) {
+      // getDataTableForExecutionsPerIS(null, data, function(err, data, next) {
+        var dataGraph = google.visualization.arrayToDataTable(data);
+        var view = new google.visualization.DataView(dataGraph);
+
+        // var data = new google.visualization.DataTable();
+        // dataGraph.addColumn('string', 'Name');
+        // dataGraph.addColumn('number', 'Salary');
+        // dataGraph.addColumn('boolean', 'Full Time Employee');
+        // data.addRows([
+        //   ['Mike',  {v: 10000, f: '$10,000'}, true],
+        //   ['Jim',   {v:8000,   f: '$8,000'},  false],
+        //   ['Alice', {v: 12500, f: '$12,500'}, true],
+        //   ['Bob',   {v: 7000,  f: '$7,000'},  true]
+        // ]);
+
+        // Set chart options
+        var options = {
+          // 'title': 'Average duration of Jobs', //Average Jobs duration',
+          'width': '100%',
+          'height': '100%'
+          // 'width': 300,
+          // 'height': 200,
+          // 'showRowNumber': true
+
+          // 'colors': ['#b9c246', '#e49307', '#e7711b', '#d3362d', '#e2431e']
+        };
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(dataGraph, options);
+      });
+    });
+  });
+}
+
 
 /**
  * draw Completion Chart based on cloud data using API call get exec data
@@ -275,7 +324,7 @@ function getDataTableForExecutionsPerIS(err, executions, callback) {
 function getDataTableForExecutionsPerUser(err, executions, callback) {
   var graphContent = [], dic = {}, nb, ISname = '', archived_jobs, open_jobs;
 
-  graphContent.push(["User name", "Quantity", {role: "style"}]);
+  graphContent.push(["Employee", "Quantity", {role: "style"}]);
   nb = executions.length;
   open_jobs = archived_jobs = 0;
 
@@ -295,7 +344,7 @@ function getDataTableForExecutionsPerUser(err, executions, callback) {
     }
     if (nb < 2) {
       var arr = [
-        ['User name', 'quantity']
+        ['Employee', 'Quantity']
       ];
       for (var x in dic) {
         arr.push([x, dic[x]]);
