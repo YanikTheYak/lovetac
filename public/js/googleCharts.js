@@ -76,7 +76,7 @@ function drawTable() {
 
         // Set chart options
         var options = {
-          // 'title': 'Average duration of Jobs', //Average Jobs duration',
+          'title': 'Open Jobs per User',
           'width': '100%',
           'height': '100%'
           // 'width': 300,
