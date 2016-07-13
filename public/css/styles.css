@@ -62,7 +62,7 @@ div.indicator {
 
 div.flat {
   box-shadow: 0px 0px 0px;
-  border: 0px solid;
+  border: 1px solid  #ddd;
   background: #fff;
   min-height: 80px;
 }
