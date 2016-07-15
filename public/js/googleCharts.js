@@ -32,9 +32,9 @@ function drawChart_numberOfJobsPerUser() {
 
         // Set chart options
         var options = {
-          title: 'Open Jobs per User',
+          // title: 'Open Jobs per User',
           width: 400,
-          height: 300,
+          height: 200,
           legend: {position: 'right', maxLines: 5},
            is3D: true,
           // colors: ['#e2431e', '#d3362d', '#e7711b', '#e49307', '#e49307', '#b9c246'],
